@@ -1,42 +1,162 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --universal-background: #0a0a0a;
+
+  --paragraph-text: #999;
+  --header-color: #eee;
+
+  --button-default: #efbf04;
+  --button-default-hover: #faf193;
+  --button-default-active: #f9f3c0;
+  --button-default-focus: #f3de72;
+  --button-text-default: #121212;
+  --button-text-hover: #242424;
+
+  --link-default: #e8d366;
+  --link-hover: #eefff1;
+  --link-select-default: #555;
+  --link-select-hover: #efe;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Attributes */
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  touch-action: manipulation;
 }
 
+*::selection {
+  background: #b2faa4cc;
+  color: #121212;
+}
+
+a::selection {
+  color: var(--link-select-default);
+  text-decoration: underline;
+}
+
+a:hover::selection {
+  color: var(--link-select-hover);
+}
+
+html, body {
+  background: var(--universal-background);
+  overflow-x: clip;
+}
+
+/* Text */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-color);
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2.5rem;
+}
+
+h5 {
+  font-size: 2rem;
+}
+
+h6 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.25rem;
+  color: var(--paragraph-text);
+}
+
+/* Interactivity */
 a {
-  color: inherit;
-  text-decoration: none;
+  font-size: 1.25rem;
+  color: var(--link-default);
+  text-decoration: underline;
+  transition: color .125s;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+a:hover {
+  color: var(--link-hover);
+  transition: none;
+}
+
+a:active {
+  color: var(--button-default-active);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--button-default-focus);
+  border-radius: .25rem;
+  color: var(--button-default-focus);
+  animation: tabSelect 1s ease infinite;
+}
+
+@keyframes tabSelect {
+  0%, 100% {
+    outline-color: var(--button-default-focus);
+    color: var(--button-text-hover);
   }
+  50% {
+    outline-color: var(--button-default);
+    color: var(--button-text-default);
+  }
+}
+
+button {
+  padding: .5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: .5rem;
+  background: var(--button-default);
+  font-size: 1.25rem;
+  color: var(--button-text-default);
+  transition: background-color .25s, color .25s, filter .25s;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--button-default-hover);
+  color: var(--button-text-hover);
+  transition: none;
+}
+
+button:active {
+  background: var(--button-default-active);
+  color: var(--button-text-default);
+  transition: none;
+}
+
+button:focus-visible {
+  background: var(--button-default-focus);
+  color: var(--button-text-hover);
+  transition: none;
+}
+
+/* Main Light Mode */
+/* --- Media Quieries --- */
+/* Prefers Reduced Animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+  }
+
+  a, button, button:hover {
+    transition: none;
+  }
+
+  a:focus-visible {
+    animation: none;
+  }
+  
 }
