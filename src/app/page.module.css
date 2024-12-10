@@ -1,40 +1,79 @@
 .frontLander {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
   justify-content: center;
   align-items: center;
-}
-
-.frontLander .foregroundContent {
-  position: relative;
-  z-index: 2;
-}
-
-.frontLander .foregroundContent .title {
-  line-height: 3.5rem;
-}
-
-.frontLander .foregroundContent .title h5 {
-  color: var(--button-default);
-}
-
-.frontLander .foregroundContent .button {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-}
-
-.frontLander .backgroundContent {
-  position: absolute;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  background-image: radial-gradient(#222 20%, #111 20%);
-  background-size: 1rem 1rem;
-  background-repeat: repeat;
-  animation: background-shift 30s linear infinite;
-  z-index: 1;
+  background: #111;
+
+  .foregroundContent {
+    position: relative;
+    z-index: 2;
+
+    .titleContainer {
+      width: clamp(0, max-content, max-content);
+      line-height: 1;
+      text-wrap: wrap;
+
+      .subTitle {
+        color: var(--button-default);
+      }
+
+    }
+
+    .primaryButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+
+      .button {
+        height: 4rem;
+        width: clamp(7rem, 80%, 50rem);
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+    }
+
+    .buttonArray {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      .subButton {
+        width: clamp(0, 7rem, 8rem);
+        outline: .125rem solid var(--button-default);
+        background: var(--button-text-default);
+        color: var(--button-default);
+      }
+
+      .subButton:hover {
+        outline: .125rem solid var(--button-default);
+        background: var(--button-text-hover);
+        color: var(--button-default-hover);
+      }
+
+    }
+
+  }
+
+  .backgroundContent {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(#222 20%, #111 20%);
+    background-size: 1rem 1rem;
+    background-repeat: repeat;
+    animation: background-shift 120s linear infinite;
+    z-index: 1;
+    clip-path: circle(50% at 50% 50%);
+    /* clip-path: url(#mySvg); */
+  }
+
 }
 
 @keyframes background-shift {
@@ -44,4 +83,19 @@
   100% {
     background-position: 100% 100%;
   }
+}
+
+.introSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+}
+
+.introSection .introduction {
+  margin: 2rem;
+  height: 35rem;
+  width: 100%;
+  background: #222;
 }

@@ -1,8 +1,8 @@
-import "./header.css";
+import header from "./header.module.css";
 
 export default function Header() {
   return (
-    <nav>
+    <nav className={header.headerBase}>
       
     </nav>
   )

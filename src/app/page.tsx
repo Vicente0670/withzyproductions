@@ -17,18 +17,36 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main>
+      {/* <svg>
+        <defs>
+          <clipPath id="mySvg">
+            <path path="M 0.5 0.5 m 0.3 0 a 0.25 0.25 0 1 0 -0.6 0 a 0.25 0.25 0 1 0 0.6 0 M 0.5 0 Q 1 0 1 0.5 T 0.5 1 T 0 0.5 T 0.5 0 Z"></path>
+          </clipPath>
+        </defs>
+      </svg> */}
       <div className={page.frontLander}>
         <div className={page.foregroundContent}>
-          <div className={page.title}>
-            <h5>Hi, I'm</h5>
-            <h1>Zyshonne Harris</h1>
+          <div className={page.titleContainer}>
+            <h5 className={page.subTitle}>Hi, I'm</h5>
+            <h1 className={page.nameTitle}>Zyshonne Harris</h1>
           </div>
-          <div className={page.button}>
-            <button id="button-trailer">Watch Trailer</button>
+          <div className={page.primaryButton}>
+            <button className={page.button} id="button-walkthrough">Learn more about me!</button>
+          </div>
+          <div className={page.buttonArray}>
+            <button className={page.subButton} id="button-contact">Contact</button>
+            <button className={page.subButton} id="button-portfolio">Portfolio</button>
+            <button className={page.subButton} id="button-rates">Rates</button>
           </div>
         </div>
         <div className={page.backgroundContent}>
           
+        </div>
+      </div>
+      <div className={page.introSection}>
+        <div className={page.introduction}>
+          <h1>Test.</h1>
+          <p>This is a test. Lorem ipsum would go here but I'm lazy</p>
         </div>
       </div>
     </main>

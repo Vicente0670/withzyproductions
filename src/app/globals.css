@@ -1,7 +1,8 @@
 :root {
-  --universal-background: #0a0a0a;
+  --universal-background: #111;
 
   --paragraph-text: #999;
+  --paragraph-highlight: #faf8a4cc;
   --header-color: #eee;
 
   --button-default: #efbf04;
@@ -26,7 +27,7 @@
 }
 
 *::selection {
-  background: #b2faa4cc;
+  background: var(--paragraph-highlight);
   color: #121212;
 }
 
@@ -50,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: clamp(3rem, 90vw, 5rem);
 }
 
 h2 {
@@ -119,6 +120,7 @@ button {
   outline: none;
   border-radius: .5rem;
   background: var(--button-default);
+  font-family: inherit;
   font-size: 1.25rem;
   color: var(--button-text-default);
   transition: background-color .25s, color .25s, filter .25s;
