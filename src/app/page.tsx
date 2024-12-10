@@ -48,7 +48,7 @@ export default function Page() {
       <div className={page.introSection}>
         <div className={page.introduction}>
           <h1>Test.</h1>
-          <p>This is a test. Lorem ipsum would go here but I'm lazy</p>
+          <p>This is a test. Lorem ipsum would go here but I&apos;m lazy</p>
         </div>
       </div>
     </main>
