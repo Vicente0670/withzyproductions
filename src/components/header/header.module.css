@@ -1,0 +1,12 @@
+.headerBase {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  width: 100%;
+  background-size: 10rem 10rem;
+  background-image: radial-gradient();
+  background-repeat: repeat;
+  z-index: 255;
+}
