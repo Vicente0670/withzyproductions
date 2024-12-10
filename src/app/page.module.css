@@ -1,20 +1,30 @@
 .frontLander {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   width: 100%;
   background: #111;
 
   .foregroundContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    height: 100%;
+    width: 100vw;
     z-index: 2;
 
     .titleContainer {
-      width: clamp(0, max-content, max-content);
+      margin: 0 2rem;
+      height: max-content;
+      width: calc(50% - 4rem);
       line-height: 1;
+      line-break: stable;
       text-wrap: wrap;
+
+      .subTitle, .nameTitle {
+        width: auto;
+      }
 
       .subTitle {
         color: var(--button-default);
@@ -22,39 +32,45 @@
 
     }
 
-    .primaryButton {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2rem;
+    .buttonContainer {
+      width: 30%;
+      min-width: 10rem;
 
-      .button {
-        height: 4rem;
-        width: clamp(7rem, 80%, 50rem);
-        font-size: 1.25rem;
-        font-weight: 700;
+      .primaryButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+
+        .button {
+          min-height: 4rem;
+          width: clamp(1rem, 100%, 26.25rem);
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+
       }
 
-    }
+      .buttonArray {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
 
-    .buttonArray {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
+        .subButton {
+          width: clamp(7rem, 100%, 8rem);
+          outline: .125rem solid var(--button-default);
+          background: var(--button-text-default);
+          color: var(--button-default);
+        }
 
-      .subButton {
-        width: clamp(0, 7rem, 8rem);
-        outline: .125rem solid var(--button-default);
-        background: var(--button-text-default);
-        color: var(--button-default);
-      }
+        .subButton:hover {
+          outline: .125rem solid var(--button-default);
+          background: var(--button-text-hover);
+          color: var(--button-default-hover);
+        }
 
-      .subButton:hover {
-        outline: .125rem solid var(--button-default);
-        background: var(--button-text-hover);
-        color: var(--button-default-hover);
       }
 
     }
@@ -91,11 +107,31 @@
   align-items: center;
   height: auto;
   width: 100%;
+  
+  .introduction {
+    margin: 2rem;
+    height: 35rem;
+    width: 100%;
+    background: #222;
+  }
+  
 }
 
-.introSection .introduction {
-  margin: 2rem;
-  height: 35rem;
-  width: 100%;
-  background: #222;
+@media screen and (max-width: 61rem) {
+  .frontLander {
+
+    .foregroundContent {
+
+      .titleContainer {
+        width: 100%;
+      }
+
+      .buttonContainer {
+        width: 100%;
+      }
+
+    }
+
+  }
+
 }

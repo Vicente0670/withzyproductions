@@ -30,13 +30,15 @@ export default function Page() {
             <h5 className={page.subTitle}>Hi, I'm</h5>
             <h1 className={page.nameTitle}>Zyshonne Harris</h1>
           </div>
-          <div className={page.primaryButton}>
-            <button className={page.button} id="button-walkthrough">Learn more about me!</button>
-          </div>
-          <div className={page.buttonArray}>
-            <button className={page.subButton} id="button-contact">Contact</button>
-            <button className={page.subButton} id="button-portfolio">Portfolio</button>
-            <button className={page.subButton} id="button-rates">Rates</button>
+          <div className={page.buttonContainer}>
+            <div className={page.primaryButton}>
+              <button className={page.button} id="button-walkthrough">Learn more about me!</button>
+            </div>
+            <div className={page.buttonArray}>
+              <button className={page.subButton} id="button-contact">Contact</button>
+              <button className={page.subButton} id="button-portfolio">Portfolio</button>
+              <button className={page.subButton} id="button-rates">Rates</button>
+            </div>
           </div>
         </div>
         <div className={page.backgroundContent}>
