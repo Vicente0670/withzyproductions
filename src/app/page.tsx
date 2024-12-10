@@ -27,7 +27,7 @@ export default function Page() {
       <div className={page.frontLander}>
         <div className={page.foregroundContent}>
           <div className={page.titleContainer}>
-            <h5 className={page.subTitle}>Hi, I'm</h5>
+            <h5 className={page.subTitle}>Hi, I&apos;m</h5>
             <h1 className={page.nameTitle}>Zyshonne Harris</h1>
           </div>
           <div className={page.buttonContainer}>
