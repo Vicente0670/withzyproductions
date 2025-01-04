@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <nav className={header.headerBase}>
-      <a href="/" className={header.logo}/>
+      <Link href="/" className={header.logo}/>
       <div className={header.linkContainer}>
         <Link href="/">Home</Link>
         <Link href="/">Contact</Link>
