@@ -2,7 +2,9 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  background: #111;
+  background-image: radial-gradient(#222 20%, #111 20%);
+  background-repeat: repeat;
+  background-size: .5rem .5rem;
 
   .foregroundContent {
     display: flex;
@@ -15,38 +17,52 @@
     z-index: 2;
 
     .titleContainer {
-      margin: 0 2rem;
       height: max-content;
-      width: calc(50% - 4rem);
+      width: 50%;
       line-height: 1;
-      line-break: stable;
+      line-break: normal;
       text-wrap: wrap;
+      container-type: inline-size;
 
       .subTitle, .nameTitle {
+        margin-left: 3rem;
         width: auto;
       }
 
       .subTitle {
         color: var(--button-default);
       }
+      
+      @container (max-width: 727px) {
+        .subTitle, .nameTitle {
+          margin-left: clamp(3rem, 7vw + -1rem, 6rem);
+        }
+      }
 
     }
 
     .buttonContainer {
-      width: 30%;
+      width: 50%;
       min-width: 10rem;
+      container-type: inline-size;
 
       .primaryButton {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 2rem;
 
         .button {
+          margin: 2rem;
+          margin-bottom: 0;
           min-height: 4rem;
-          width: clamp(1rem, 100%, 26.25rem);
+          width: clamp(8rem, 100%, 38.25rem);
           font-size: 1.25rem;
           font-weight: 700;
+        }
+
+        .button:focus-visible {
+          outline: .125rem solid var(--button-default-hover);
+          outline-offset: .25rem;
         }
 
       }
@@ -54,12 +70,16 @@
       .buttonArray {
         display: flex;
         flex-wrap: wrap;
+        flex-shrink: 1;
         justify-content: center;
         gap: 1rem;
-        margin-top: 1rem;
+        margin: 1rem 2rem;
+        margin-bottom: 0;
 
         .subButton {
-          width: clamp(7rem, 100%, 8rem);
+          min-width: 8rem;
+          width: 100%;
+          max-width: 12rem;
           outline: .125rem solid var(--button-default);
           background: var(--button-text-default);
           color: var(--button-default);
@@ -71,6 +91,20 @@
           color: var(--button-default-hover);
         }
 
+        .subButton:focus-visible {
+          background: var(--button-default);
+          outline: .125rem solid var(--button-default);
+          outline-offset: .25rem;
+          color: var(--button-text-default);
+        }
+
+      }
+
+      @container (max-width: 41.99rem) {
+        .primaryButton .button {
+          max-width: 25.25rem;
+        }
+
       }
 
     }
@@ -79,15 +113,15 @@
 
   .backgroundContent {
     position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: radial-gradient(#222 20%, #111 20%);
+    right: 0;
+    height: 100vh;
+    width: 80%;
+    background-image: radial-gradient(#555 20%, #111 20%);
     background-size: 1rem 1rem;
     background-repeat: repeat;
     animation: background-shift 120s linear infinite;
     z-index: 1;
-    clip-path: circle(50% at 50% 50%);
-    /* clip-path: url(#mySvg); */
+    clip-path: path("M 518 100 L 501 176 L 100 565 L 337 565 L 357 478 L 429 478 L 395 627 L 9 627 L 27 547 L 422 162 L 192 162 L 171 251 L 99 251 L 134 100 L 518 100 Z M 530 160 L 544 100 L 715 100 L 701 160 L 659 160 L 719 325 L 862 160 L 820 160 L 834 100 L 1005 100 L 991 160 L 948 160 L 744 388 L 703 568 L 752 568 L 738 627 L 567 627 L 581 568 L 630 568 L 671 387 L 581 160 L 530 160 Z");
   }
 
 }
@@ -121,17 +155,63 @@
   .frontLander {
 
     .foregroundContent {
+      flex-direction: column;
 
       .titleContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
+
+        .subTitle, .nameTitle {
+          margin: 0 1.775rem;
+          text-align: center;
+        }
+
       }
 
       .buttonContainer {
         width: 100%;
+
+        .primaryButton {
+
+          .button {
+            min-width: 8rem;
+            margin-top: 4rem;
+          }
+
+        }
+
       }
 
     }
 
+  }
+
+}
+
+@media screen and (max-width: 41.99rem) {
+
+  .frontLander {
+
+    .foregroundContent .buttonContainer .primaryButton .button {
+      max-width: 25.25rem;
+    }
+
+    .backgroundContent {
+      right: unset;
+      width: 100%;
+      clip-path: path("M 279.72 129 L 270.54 170.04 L 54 380.1 L 181.98 380.1 L 192.78 333.12 L 231.66 333.12 L 213.3 413.58 L 4.86 413.58 L 14.58 370.38 L 227.88 162.48 L 103.68 162.48 L 92.34 210.54 L 53.46 210.54 L 72.36 129 L 279.72 129 Z M 286.2 161.4 L 293.76 129 L 386.1 129 L 378.54 161.4 L 355.86 161.4 L 388.26 250.5 L 465.48 161.4 L 442.8 161.4 L 450.36 129 L 542.7 129 L 535.14 161.4 L 511.92 161.4 L 401.76 284.52 L 379.62 381.72 L 406.08 381.72 L 398.52 413.58 L 306.18 413.58 L 313.74 381.72 L 340.2 381.72 L 362.34 283.98 L 313.74 161.4 L 286.2 161.4 Z");
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 28.99rem) {
+
+  .frontLander .foregroundContent .buttonContainer .buttonArray .subButton {
+    max-width: 100%;
   }
 
 }
