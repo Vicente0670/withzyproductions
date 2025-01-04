@@ -2,7 +2,7 @@
   --universal-background: #111;
 
   --paragraph-text: #999;
-  --paragraph-highlight: #faf8a4cc;
+  --paragraph-highlight: #fbd540c5;
   --header-color: #eee;
 
   --button-default: #efbf04;
@@ -67,7 +67,7 @@ h4 {
 }
 
 h5 {
-  font-size: clamp(1.25rem, .75vw + 1rem, 2rem);
+  font-size: clamp(1.5rem, .75vw + 1rem, 2rem);
 }
 
 h6 {
@@ -82,6 +82,7 @@ p {
 /* Interactivity */
 a {
   font-size: 1.25rem;
+  outline-offset: .25rem;
   color: var(--link-default);
   text-decoration: underline;
   transition: color .125s;
@@ -106,11 +107,11 @@ a:focus-visible {
 @keyframes tabSelect {
   0%, 100% {
     outline-color: var(--button-default-focus);
-    color: var(--button-text-hover);
+    color: var(--button-default-focus);
   }
   50% {
     outline-color: var(--button-default);
-    color: var(--button-text-default);
+    color: var(--button-default);
   }
 }
 
@@ -143,6 +144,10 @@ button:focus-visible {
   background: var(--button-default-focus);
   color: var(--button-text-hover);
   transition: none;
+}
+
+svg {
+  position: absolute;
 }
 
 /* Main Light Mode */

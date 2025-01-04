@@ -12,18 +12,10 @@ export const metadata: Metadata = {
     images: "/harris.png",
   },
 }
-// mostly, this is just a test to see if my custom metadata works at all and i hope it does because im tired please let me stop
 
 export default function Page() {
   return (
     <main>
-      {/* <svg>
-        <defs>
-          <clipPath id="mySvg">
-            <path path="M 0.5 0.5 m 0.3 0 a 0.25 0.25 0 1 0 -0.6 0 a 0.25 0.25 0 1 0 0.6 0 M 0.5 0 Q 1 0 1 0.5 T 0.5 1 T 0 0.5 T 0.5 0 Z"></path>
-          </clipPath>
-        </defs>
-      </svg> */}
       <div className={page.frontLander}>
         <div className={page.foregroundContent}>
           <div className={page.titleContainer}>
@@ -41,14 +33,18 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className={page.backgroundContent}>
-          
-        </div>
+        <div className={page.backgroundContent}/>
       </div>
       <div className={page.introSection}>
         <div className={page.introduction}>
           <h1>Test.</h1>
           <p>This is a test. Lorem ipsum would go here but I&apos;m lazy</p>
+        </div>
+      </div>
+      <div className={page.introSection}>
+        <div className={page.introduction}>
+          <h1>Test.</h1>
+          <p>oops</p>
         </div>
       </div>
     </main>
