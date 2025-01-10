@@ -39,6 +39,31 @@
     transition: none;
   }
 
+  .menuButton {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .25rem;
+    position: relative;
+    margin: 1.5rem;
+    margin-left: auto;
+    padding: .75rem;
+    aspect-ratio: 1;
+    width: 1.5rem;
+    background: var(--link-select-default);
+    border-radius: 1.5rem;
+    overflow: clip;
+    z-index: 256;
+    
+    .bun, .meat {
+      height: .2rem;
+      width: 100%;
+      background: #ddd;
+    }
+
+  }
+
   .linkContainer {
     display: flex;
     position: relative;
@@ -48,16 +73,62 @@
     margin-left: auto;
     height: 100%;
     z-index: 256;
+
+    .menuTitle {
+      list-style: none;
+
+      .menuItems {
+        display: none;
+        position: absolute;
+        padding: .75rem;
+        max-width: 18rem;
+        outline: .125rem solid #aaa;
+        background: #11111180;
+        border-radius: .5rem;
+        backdrop-filter: blur(.5rem);
+        list-style: none;
+      }
+
+      .menuItems li {
+        margin-bottom: .75rem;
+        outline: .125rem solid ;
+        background: #111111cc;
+        border-radius: .25rem;
+      }
+
+      .menuItems:not(:last-child) {
+        margin-bottom: .75rem;
+      }
+
+      .menuItems li * {
+        padding: .5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+    
+    .menuTitle:hover {
+
+      .menuItems {
+        display: block;
+      }
+
+    }
+
   }
 
-  .linkContainer a {
+  .linkContainer a, .linkContainer p {
     color: #aaa;
     text-decoration: none;
+    transition: color .25s;
+    cursor: pointer;
   }
   
-  .linkContainer a:hover {
+  .linkContainer a:hover, .linkContainer p:hover {
     color: #ddd;
     text-decoration: none;
+    transition: none;
   }
 
   .headerBackground {
@@ -71,4 +142,12 @@
     mask-image: linear-gradient(0, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 33%);
   }
 
+}
+
+@media screen and (max-width: 28.99rem) {
+  .headerBase {
+
+    /* CHANGE WHEN THE HAMBURGER MENU APPEARS! */
+  }
+  
 }
