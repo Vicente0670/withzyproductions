@@ -27,8 +27,8 @@ export default function Page() {
               <button className={page.button} id="button-walkthrough">Learn more about me!</button>
             </div>
             <div className={page.buttonArray}>
-              <button className={page.subButton} id="button-contact">Contact</button>
               <button className={page.subButton} id="button-portfolio">Portfolio</button>
+              <button className={page.subButton} id="button-contact">Contact</button>
               <button className={page.subButton} id="button-rates">Rates</button>
             </div>
           </div>
