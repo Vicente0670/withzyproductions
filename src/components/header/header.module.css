@@ -40,7 +40,7 @@
   }
 
   .menuButton {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -53,6 +53,7 @@
     width: 1.5rem;
     background: var(--link-select-default);
     border-radius: 1.5rem;
+    cursor: pointer;
     overflow: clip;
     z-index: 256;
     
@@ -62,6 +63,14 @@
       background: #ddd;
     }
 
+  }
+
+  .menuButton:hover {
+
+  }
+  
+  .menuButton:focus-visible {
+    
   }
 
   .linkContainer {
@@ -146,7 +155,7 @@
 
 @media screen and (max-width: 28.99rem) {
   .headerBase {
-
+    
     /* CHANGE WHEN THE HAMBURGER MENU APPEARS! */
   }
   

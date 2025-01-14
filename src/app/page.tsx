@@ -24,7 +24,7 @@ export default function Page() {
           </div>
           <div className={page.buttonContainer}>
             <div className={page.primaryButton}>
-              <button className={page.button} id="button-walkthrough">Learn more about me!</button>
+              <button className={page.button} id="button-walkthrough" tabIndex={0}>Learn more about me!</button>
             </div>
             <div className={page.buttonArray}>
               <button className={page.subButton} id="button-portfolio">Portfolio</button>
