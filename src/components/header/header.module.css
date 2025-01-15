@@ -53,6 +53,7 @@
     width: 1.5rem;
     background: var(--link-select-default);
     border-radius: 1.5rem;
+    transition: background-color .25s;
     cursor: pointer;
     overflow: clip;
     z-index: 256;
@@ -61,16 +62,24 @@
       height: .2rem;
       width: 100%;
       background: #ddd;
+      pointer-events: none;
     }
 
   }
 
   .menuButton:hover {
+    background: #777;
+    transition: none;
+  }
 
+  .menuButton:active {
+    background: #666;
+    transition: none;
   }
   
   .menuButton:focus-visible {
-    
+    background: #777;
+    transition: none;
   }
 
   .linkContainer {
