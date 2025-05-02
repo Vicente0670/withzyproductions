@@ -6,7 +6,7 @@
   height: 6rem;
   width: 100%;
   background-image: linear-gradient(0, #11111100, #111);
-  z-index: 255;
+  z-index: 99;
 
   .logo {
     position: relative;
@@ -17,7 +17,7 @@
     background-size: contain;
     border-radius: 1.5rem;
     transition: filter .5s ease, box-shadow .5s ease;
-    z-index: 256;
+    z-index: 100;
   }
 
   .logo:hover {
@@ -39,49 +39,6 @@
     transition: none;
   }
 
-  .menuButton {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: .25rem;
-    position: relative;
-    margin: 1.5rem;
-    margin-left: auto;
-    padding: .75rem;
-    aspect-ratio: 1;
-    width: 1.5rem;
-    background: var(--link-select-default);
-    border-radius: 1.5rem;
-    transition: background-color .25s;
-    cursor: pointer;
-    overflow: clip;
-    z-index: 256;
-    
-    .bun, .meat {
-      height: .2rem;
-      width: 100%;
-      background: #ddd;
-      pointer-events: none;
-    }
-
-  }
-
-  .menuButton:hover {
-    background: #777;
-    transition: none;
-  }
-
-  .menuButton:active {
-    background: #666;
-    transition: none;
-  }
-  
-  .menuButton:focus-visible {
-    background: #777;
-    transition: none;
-  }
-
   .linkContainer {
     display: flex;
     position: relative;
@@ -90,7 +47,7 @@
     margin: 0 2rem;
     margin-left: auto;
     height: 100%;
-    z-index: 256;
+    z-index: 100;
 
     .menuTitle {
       list-style: none;
@@ -105,6 +62,7 @@
         border-radius: .5rem;
         backdrop-filter: blur(.5rem);
         list-style: none;
+        opacity: 1;
       }
 
       .menuItems li {
@@ -112,10 +70,6 @@
         outline: .125rem solid ;
         background: #111111cc;
         border-radius: .25rem;
-      }
-
-      .menuItems:not(:last-child) {
-        margin-bottom: .75rem;
       }
 
       .menuItems li * {
@@ -137,6 +91,7 @@
   }
 
   .linkContainer a, .linkContainer p {
+    padding: 2rem 0;
     color: #aaa;
     text-decoration: none;
     transition: color .25s;
@@ -147,6 +102,10 @@
     color: #ddd;
     text-decoration: none;
     transition: none;
+  }
+
+  .linkContainer p:hover, .linkContainer p .menuItems:hover {
+    
   }
 
   .headerBackground {
@@ -165,7 +124,10 @@
 @media screen and (max-width: 28.99rem) {
   .headerBase {
     
-    /* CHANGE WHEN THE HAMBURGER MENU APPEARS! */
+    .linkContainer {
+      display: none;
+    }
+
   }
   
 }

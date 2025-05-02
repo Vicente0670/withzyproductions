@@ -1,15 +1,12 @@
 import header from "./header.module.css";
 import Link from "next/link";
+import MenuFunction from "./menuFunction";
 
 export default function Header() {
   return (
     <nav className={header.headerBase}>
       <Link href="/" className={header.logo}/>
-      <div className={header.menuButton} role="button" tabIndex={1} aria-expanded={false}>
-        <div className={header.bun}></div>
-        <div className={header.meat}></div>
-        <div className={header.bun}></div>
-      </div>
+      <MenuFunction/>
       <div className={header.linkContainer}>
         <Link href="/">Home</Link>
         <ul className={header.menuTitle}>

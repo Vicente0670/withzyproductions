@@ -14,7 +14,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://withzyproductions.com/"),
   title: "With Zy Productions",
-  description: "Greetings, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor.",
+  description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, here to bring your ideas and memories to life.",
   authors: [{ name: "Vicente0670", url: "https://vicente0670.com" }],
   icons: {
     icon: "/favicon.ico",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "With Zy Productions",
-    description: "Greetings, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor.",
+    description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, here to bring your ideas and memories to life.",
     images: "/harris.png",
     authors: "Vicente0670",
   },

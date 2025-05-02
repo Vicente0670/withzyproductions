@@ -4,22 +4,22 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "With Zy Productions",
-  description: "This is the home page, isn't it great?",
+  description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, helping many people's cinematic vision come to life. Where moments become memories.",
 
   openGraph: {
     title: "With Zy Productions",
-    description: "This is the home page, isn't this great!",
+    description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, helping many people's cinematic vision come to life. Where moments become memories.",
     images: "/harris.png",
   },
 }
-
+  
 export default function Page() {
   return (
-    <main>
+    <>
       <div className={page.frontLander}>
         <div className={page.foregroundContent}>
           <div className={page.titleContainer}>
-            <h5 className={page.subTitle}>Hi, I&apos;m</h5>
+            <h5 className={page.subTitle}>Hello, I&apos;m</h5>
             <h1 className={page.nameTitle}>Zyshonne Harris</h1>
           </div>
           <div className={page.buttonContainer}>
@@ -47,6 +47,6 @@ export default function Page() {
           <p>oops</p>
         </div>
       </div>
-    </main>
+    </>
   )
 }
