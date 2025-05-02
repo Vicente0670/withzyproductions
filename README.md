@@ -1,10 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **With ZY Productions**
 
-## Getting Started
+> *Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, tailoring my skills to bring your vision and memories to life!
+Where moments become memories.*
 
-First, run the development server:
+With ZY Productions brings you a warm welcome. Get to know Zyshonne Harris and about his business at [WithZyProductions.com](https://withzyproductions.com/).
 
-```bash
+Experience the business through Zyshonne's perspective and understand the many clients' portrayals that demonstrate the strengths and qualities of Zyshonne and his services.
+
+*Shh... We are aware that we could have just sniped the [withzy.productions](https://withzy.productions/) domain name, but what can we do about it now?*
+
+## Development
+<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=html,css,js,ts,next,git"/></a>
+
+[WithZyProductions.com](https://withzyproductions.com/) was developed using [Next.js 15](https://nextjs.org/).
+If (*for whatever reason*) you want to host the website locally, you can do so by following a few simple steps, assuming you have Git installed:
+
+### 1. Choose where to drop the repository
+Simply open the desired folder that you want the project to fall into. We're installing the repository via the Git Bash.
+Personally, I would use [VSCode](https://code.visualstudio.com/) to download, but the [GitHub CLI](https://cli.github.com/) works, too.
+### 2. Clone the repository
+In Git Bash, copy and paste the following command:
+```git
+git clone https://github.com/Vicente0670/withzyproductions
+```
+This should clone the entire repository to the current directory.
+### 3. Run the project
+Run the local server using the following commands (*according to Next.js's README*):
+```c
 npm run dev
 # or
 yarn dev
@@ -13,24 +35,8 @@ pnpm dev
 # or
 bun dev
 ```
+Once you've done that, open [http://localhost:3000](http://localhost:3000) on your web browser, and you should see the entirety of the website.
+You can now modify the project on your computer at will.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*...*
+*I think this tutorial needs some enhancing...*

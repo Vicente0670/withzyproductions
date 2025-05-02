@@ -4,11 +4,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "With Zy Productions",
-  description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, helping many people's cinematic vision come to life. Where moments become memories.",
+  description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, tailoring my skills to bring your vision and memories to life! Where moments become memories.",
 
   openGraph: {
     title: "With Zy Productions",
-    description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, helping many people's cinematic vision come to life. Where moments become memories.",
+    description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, tailoring my skills to bring your vision and memories to life! Where moments become memories.",
     images: "/harris.png",
   },
 }
