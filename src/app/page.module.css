@@ -210,7 +210,6 @@
 
 @media screen and (max-width: 28.99rem) {
 
-<<<<<<< HEAD
   .frontLander .foregroundContent .buttonContainer {
     width: 100%;
 
@@ -229,10 +228,6 @@
 
     }
 
-=======
-  .frontLander .foregroundContent .buttonContainer .buttonArray .subButton {
-    max-width: 100%;
->>>>>>> 69b5b46d65e9a375f1aa9de5f4401d9d8e451596
   }
 
 }
