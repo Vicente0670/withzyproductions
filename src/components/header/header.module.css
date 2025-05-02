@@ -104,10 +104,6 @@
     transition: none;
   }
 
-  .linkContainer p:hover, .linkContainer p .menuItems:hover {
-    
-  }
-
   .headerBackground {
     position: absolute;
     height: 100%;
