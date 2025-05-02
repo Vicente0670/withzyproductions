@@ -5,31 +5,38 @@ import type { Metadata, Viewport } from "next";
 
 const noto = Noto_Serif({ subsets: ["latin"] });
 
+const schema = {
+  title: "With Zy Productions",
+  description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, tailoring my skills to bring your vision and memories to life! Where moments become memories.",
+  favicon: "/favicon.ico",
+  keywords: "with zy productions, zy productions, withzyproductions, photography, videography, editor, business, professional",
+}
+
 export const viewport: Viewport = {
-  themeColor: "#77dd77",
+  themeColor: "#f2c12e",
   width: "device-width",
   initialScale: 1,
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://withzyproductions.com/"),
-  title: "With Zy Productions",
-  description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, tailoring my skills to bring your vision and memories to life! Where moments become memories.",
+  title: schema.title,
+  description: schema.description,
   authors: [{ name: "Vicente0670", url: "https://vicente0670.com" }],
   icons: {
-    icon: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: schema.favicon,
+    apple: schema.favicon,
   },
 
   openGraph: {
-    title: "With Zy Productions",
-    description: "Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, tailoring my skills to bring your vision and memories to life! Where moments become memories.",
-    images: "/harris.png",
+    title: schema.title,
+    description: schema.description,
+    images: schema.favicon,
     authors: "Vicente0670",
   },
 
   robots: "all",
-  keywords: "with zy productions, zy productions, withzyproductions, photography, videography, editor, business, professional",
+  keywords: schema.keywords,
 };
 
 export default function RootLayout({
