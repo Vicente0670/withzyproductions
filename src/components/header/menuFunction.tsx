@@ -33,9 +33,8 @@ export default function MenuFunction() {
         </div>
         <div className={`menuModalContainer ${isOpen ? "open" : "closed"}`} id="menuModalContainer">
           <div className="menuModal">
-            <h2>Menu</h2>
+            {/* <h2>Menu</h2> */}
             <a href="/">Home</a>
-            <a href="/">Project 1</a>
             <details>
               <summary><p>Portfolio</p></summary>
               <a href="/">Resume</a>
@@ -45,10 +44,6 @@ export default function MenuFunction() {
             </details>
             <a href="/">Contact</a>
             <a href="/">Rates</a>
-            <a href="/">Project 2</a>
-            <a href="/">Project 3</a>
-            <a href="/">Project 4</a>
-            <a href="/">Project 5</a>
             </div>
         </div>
         <div className={`menuModalBackground ${isOpen ? "open" : "closed"}`} onClick={abortMenu}/>

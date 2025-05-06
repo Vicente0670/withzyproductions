@@ -23,7 +23,7 @@
   height: 100%;
   width: 100%;
   transition: backdrop-filter .25s var(--menuButtonAnimation);
-  transition-delay: .25s;
+  transition-delay: .125s;
   overflow: hidden;
   pointer-events: none;
   z-index: 101;
@@ -141,9 +141,9 @@
     }
 
     .menuModal:focus-visible {
-      outline: .25rem solid var(--menuButtonOpenOutline-active);
-      box-shadow: .25rem .25rem .25rem 0 red;
-      animation: openMenuTabbable 1s;
+      border-left: .25rem solid var(--menuButtonOpenOutline-active);
+      border-right: .25rem solid var(--menuButtonOpenOutline-active);
+      outline: none;
     }
 
     .menuModal h2 {
@@ -171,26 +171,62 @@
     }
 
     .menuModal details {
-      
+      display: flex;
+      animation: closeModal .125s ease 1;
+
       summary {
+        position: relative;
         width: 100%;
+        border-radius: .125rem;
+        transition: max-height .25s ease;
         list-style-type: none;
+        cursor: pointer;
         
         p {
           color: var(--link-default);
           font-size: 1.75rem;
           text-align: center;
         }
+        
+        p::selection {
+          background: none;
+          color: var(--link-default);
+        }
 
       }
       
-      summary::selection {
-        background: none;
-        color: var(--link-default);
+      summary:focus-visible {
+        outline: 1px solid var(--button-default);
+        outline-offset: 1rem;
       }
-
+      
     }
 
+    .menuModal details[open] {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 1rem;
+      transition: padding .25s ease;
+      animation: openModal .15s ease 1;
+
+      summary {
+        padding-bottom: .25rem;
+      }
+
+      a {
+        width: calc(100% - 2rem);
+        margin: 1rem auto;
+        background: var(--menuButton-active);
+        font-size: 1.5rem;
+      }
+
+      a:last-child {
+        margin: 0 auto;
+      }
+      
+    }
+    
   }
 
   .menuModalContainer::before, .menuModalContainer::after {
@@ -199,6 +235,7 @@
     left: 0;
     height: 2rem;
     width: 100%;
+    pointer-events: none;
     z-index: 102;
   }
 
@@ -288,9 +325,41 @@
 }
 
 .menuButtonContainer.open {
-  backdrop-filter: blur(.5rem);
+  backdrop-filter: blur(.25rem);
   transition-delay: 0s;
   pointer-events: all;
+}
+
+@keyframes openModal {
+  
+  0% {
+    padding-bottom: 0rem;
+  }
+
+  50% {
+    padding-bottom: 3rem;
+  }
+
+  100% {
+    padding-bottom: 1rem;
+  }
+
+}
+
+@keyframes closeModal {
+
+  0% {
+    padding-bottom: 2rem;
+  }
+
+  50% {
+    padding-bottom: 0;
+  }
+
+  100% {
+    padding-bottom: 1rem;
+  }
+
 }
 
 @keyframes openBackground {
@@ -301,21 +370,6 @@
 
   100% {
     background: var(--menuButton-open);
-  }
-
-}
-
-/* Sorta pointless, but it has to happen at some point */
-@keyframes openMenuTabbable {
-  
-  0%, 100% {
-    outline-color: #555;
-    box-shadow: .25rem .25rem .25rem 0 red;
-  }
-
-  50% {
-    outline-color: #777;
-    box-shadow: .25rem .25rem .25rem 0 orange;
   }
 
 }
