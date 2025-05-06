@@ -3,7 +3,7 @@
 > *Hello, I'm Zyshonne Harris! I'm a professional photographer, videographer, and editor, tailoring my skills to bring your vision and memories to life!
 Where moments become memories.*
 
-With ZY Productions brings you a warm welcome. Get to know Zyshonne Harris and about his business at [WithZyProductions.com](https://withzyproductions.com/).
+With ZY Productions brings you a warm welcome. Get to know Zyshonne Harris and his business at [WithZyProductions.com](https://withzyproductions.com/).
 
 Experience the business through Zyshonne's perspective and understand the many clients' portrayals that demonstrate the strengths and qualities of Zyshonne and his services.
 
