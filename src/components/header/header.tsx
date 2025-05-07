@@ -1,10 +1,32 @@
+"use client";
+
 import header from "./header.module.css";
-import Link from "next/link";
 import MenuFunction from "./menuFunction";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Header() {
+  
+  const navBarId = "navigationBar";
+  useState(() => {
+    let topDistance = 0, navBarElement: HTMLElement | null;
+    function navBarScroll() {
+      if (!navBarElement) {
+        navBarElement = document.getElementById(navBarId);
+      }
+      if (window.scrollY >= (window.screen.height / 2)) {
+        navBarElement!.style.top = "0";
+      }
+      else {
+        navBarElement!.style.top = "-6rem";
+      }
+    }
+    // let navBarElement = document.getElementById(navBarId);
+    // this apparently just doesn't work even though useEffect is MEANT to attach after
+    window.addEventListener("scroll", navBarScroll);
+  })
   return (
-    <nav className={header.headerBase}>
+    <nav id={navBarId} className={header.headerBase}>
       <Link href="/" className={header.logo}/>
       <MenuFunction/>
       <div className={header.linkContainer}>
@@ -21,7 +43,7 @@ export default function Header() {
         <Link href="/">Contact</Link>
         <Link href="/">Rates</Link>
       </div>
-      <div className={header.headerBackground}></div>
+      <div className={header.headerBackground}/>
     </nav>
   )
 }

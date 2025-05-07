@@ -1,9 +1,15 @@
-"use client"
-import "./menuFunction.css"
+"use client";
+import "./menuFunction.css";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function MenuFunction() {
   const [isOpen, clicked] = useState(false);
+  
+  function abortMenu() {
+    clicked(false);
+    document.documentElement.style.overflowY = "";
+  }
 
   function buttonClickEvent() {
     if (isOpen == true) {
@@ -15,11 +21,6 @@ export default function MenuFunction() {
       clicked(true);
       document.documentElement.style.overflowY = "hidden";
     }
-  }
-
-  function abortMenu() {
-    clicked(false);
-    document.documentElement.style.overflowY = "";
   }
 
   return (
@@ -34,16 +35,16 @@ export default function MenuFunction() {
         <div className={`menuModalContainer ${isOpen ? "open" : "closed"}`} id="menuModalContainer">
           <div className="menuModal">
             {/* <h2>Menu</h2> */}
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
             <details>
               <summary><p>Portfolio</p></summary>
-              <a href="/">Resume</a>
-              <a href="/">On Set With ZY</a>
-              <a href="/">Shoots With ZY</a>
-              <a href="/">Talks With ZY</a>
+              <Link href="/">Resume</Link>
+              <Link href="/">On Set With ZY</Link>
+              <Link href="/">Shoots With ZY</Link>
+              <Link href="/">Talks With ZY</Link>
             </details>
-            <a href="/">Contact</a>
-            <a href="/">Rates</a>
+            <Link href="/">Contact</Link>
+            <Link href="/">Rates</Link>
             </div>
         </div>
         <div className={`menuModalBackground ${isOpen ? "open" : "closed"}`} onClick={abortMenu}/>

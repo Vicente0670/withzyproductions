@@ -3,9 +3,11 @@
   flex-wrap: wrap;
   position: fixed;
   align-items: center;
+  top: -6rem;
   height: 6rem;
   width: 100%;
   background-image: linear-gradient(0, #11111100, #111);
+  transition: top .25s cubic-bezier(.5, 0, .33, 1);
   z-index: 99;
 
   .logo {
