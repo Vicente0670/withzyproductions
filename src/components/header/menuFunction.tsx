@@ -1,51 +1,65 @@
-"use client";
 import "./menuFunction.css";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function MenuFunction() {
   const [isOpen, clicked] = useState(false);
-  
+  const navButton = "navButton";
+
+  const keyList = {
+    space: "Space",
+    enter: "Enter",
+    numEnter: "NumpadEnter",
+  }
+
   function abortMenu() {
     clicked(false);
     document.documentElement.style.overflowY = "";
+    console.warn("User focused outside the menu. Menu has been hidden.");
   }
 
-  function buttonClickEvent() {
-    if (isOpen == true) {
-      clicked(false);
-      document.documentElement.style.overflowY = "";
+  function buttonClickEvent(e: any) {
+
+    if (e.repeat) return;
+
+    if ( (e.code == keyList.space || e.code == keyList.enter || e.code == keyList.numEnter) || (e.type == "click") ) {
+  
+      if (isOpen == true) {
+        clicked(false);
+        document.documentElement.style.overflowY = "";
+      }
+      
+      else {
+        document.documentElement.style.overflowY = "hidden";
+        clicked(true);
+      }
+
     }
 
-    else if (isOpen == false) {
-      clicked(true);
-      document.documentElement.style.overflowY = "hidden";
-    }
   }
 
   return (
     <>
       <div className={`menuButtonContainer ${isOpen ? "open" : "closed"}`}>
-        <div role="button" tabIndex={0} aria-expanded={isOpen} onClick={buttonClickEvent} className={`menuButton ${isOpen ? "open" : "closed"}`}>
+        <div role="button" tabIndex={0} id={navButton} onKeyDown={buttonClickEvent} onClick={buttonClickEvent} className={`menuButton ${isOpen ? "open" : "closed"}`} aria-expanded={isOpen}>
           <div className="bun"></div>
           <div className="meat"></div>
           <div className="bun"></div>
           <div className="meat"></div>
         </div>
         <div className={`menuModalContainer ${isOpen ? "open" : "closed"}`} id="menuModalContainer">
-          <div className="menuModal">
-            {/* <h2>Menu</h2> */}
-            <Link href="/">Home</Link>
+          <div className="menuModal" role="menu">
+            <Link href="/" role="menuitem">Home</Link>
             <details>
-              <summary><p>Portfolio</p></summary>
-              <Link href="/">Resume</Link>
-              <Link href="/">On Set With ZY</Link>
-              <Link href="/">Shoots With ZY</Link>
-              <Link href="/">Talks With ZY</Link>
+              <summary role="menuitem"><p>Portfolio</p></summary>
+              <Link href="/" role="menuitem">Resume</Link>
+              <Link href="/" role="menuitem">On Set With ZY</Link>
+              <Link href="/" role="menuitem">Shoots With ZY</Link>
+              <Link href="/" role="menuitem">Talks With ZY</Link>
             </details>
-            <Link href="/">Contact</Link>
-            <Link href="/">Rates</Link>
-            </div>
+            <Link href="/" role="menuitem">Contact</Link>
+            <Link href="/" role="menuitem">Rates</Link>
+          </div>
         </div>
         <div className={`menuModalBackground ${isOpen ? "open" : "closed"}`} onClick={abortMenu}/>
         <div className="menuButtonWrapper">

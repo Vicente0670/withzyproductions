@@ -38,7 +38,9 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className={page.backgroundContent}/>
+        <div className={page.backgroundContent}>
+          <div className={page.background}/>
+        </div>
       </div>
       <div className={page.introSection}>
         <div className={page.introduction}>
