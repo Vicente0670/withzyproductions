@@ -1,0 +1,78 @@
+:root {
+  --bgFooter: green;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 20rem;
+  width: 100%;
+  background: var(--bgFooter);
+
+  div:not(.footer div *) {
+    background: #111;
+    outline: 1px solid cyan;
+    outline-offset: -.5px;
+  }
+
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+    padding: 0 6rem;
+
+    .logo {
+      aspect-ratio: 1;
+      width: 7rem;
+      background-image: url("/assets/icons/withzyproductions.png");
+      background-size: contain;
+      border-radius: 25rem;
+    }
+
+    a {
+      color: var(--paragraph-text);
+      font-style: italic;
+      text-decoration: none;
+      text-decoration-thickness: .125rem;
+
+      span {
+        color: var(--button-default);
+      }
+
+    }
+
+    a:hover {
+      text-decoration-line: underline;
+    }
+
+  }
+
+  .quoteContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .125rem;
+
+    .quote {
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .author {
+      font-size: 1rem;
+    }
+
+  }
+
+  .authorContainer {
+
+  }
+
+  .socialsContainer {
+
+  }
+
+}

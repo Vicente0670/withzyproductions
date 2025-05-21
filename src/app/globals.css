@@ -47,8 +47,8 @@ a:hover::selection {
 }
 
 html, body {
+  min-width: 256px;
   background: var(--universal-background);
-  overflow-x: clip;
 }
 
 /* Text */

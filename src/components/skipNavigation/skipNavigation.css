@@ -1,0 +1,51 @@
+.skipToMainButton {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  margin: 6rem 2rem;
+  padding: .25rem 1.5rem;
+  background: var(--button-default-focus);
+  outline: .125rem solid var(--button-default-focus);
+  border-radius: .25rem;
+  color: var(--button-text-default);
+  transition: left .25s ease;
+  z-index: 256;
+}
+
+.skipToMainButton:hover {
+  color: var(--button-text-hover);
+}
+
+.skipToMainButton:focus {
+  left: 0;
+  color: var(--button-text-default);
+  animation: skipButton 1s ease infinite;
+}
+
+@keyframes skipButton {
+  
+  0%, 100% {
+    background: var(--button-default-focus);
+    outline-color: var(--button-default-focus);
+    box-shadow: .25rem .25rem .5rem #dbd03d80;
+  }
+  
+  50% {
+    background: var(--button-default);
+    outline-color: var(--button-default);
+    box-shadow: .25rem .25rem 1.5rem #dbd03d80;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  
+  .skipToMainButton {
+    transition: none;
+  }
+
+  .skipToMainButton:focus {
+    animation: none;
+  }
+  
+}

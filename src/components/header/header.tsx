@@ -43,8 +43,9 @@ export default function Header() {
         <div className={header.linkContainer}>
           <Link href="/">Home</Link>
           <ul className={header.menuTitle}>
-            <li><p>Portfolio</p></li>
+            <li><Link href="#">Portfolio</Link></li>
             <ul className={header.menuItems}>
+              <li><Link href="/">Gallery</Link></li>
               <li><Link href="/">Resume</Link></li>
               <li><Link href="/">On Set With Zy</Link></li>
               <li><Link href="/">Shoots With Zy</Link></li>
@@ -57,7 +58,6 @@ export default function Header() {
         <div id={backgroundGradient} className={header.backgroundGradient}/>
         <div id={backgroundPattern} className={header.backgroundPattern}/>
       </nav>
-      <div id={hiddenObservedDiv} className={header.hiddenObservedDiv}/>
     </>
   )
 }

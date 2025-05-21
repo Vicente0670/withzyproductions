@@ -131,7 +131,7 @@
       gap: 1rem;
       margin: 0 1rem;
       padding: 8rem 0rem;
-      height: calc(100% - (padding * 2));
+      height: calc(100% - 16rem);
       width: auto;
       transform: translateY(-1rem);
       transition: box-shadow .25s ease;

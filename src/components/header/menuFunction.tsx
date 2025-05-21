@@ -52,6 +52,7 @@ export default function MenuFunction() {
             <Link href="/" role="menuitem">Home</Link>
             <details>
               <summary role="menuitem"><p>Portfolio</p></summary>
+              <Link href="/" role="menuitem">Gallery</Link>
               <Link href="/" role="menuitem">Resume</Link>
               <Link href="/" role="menuitem">On Set With ZY</Link>
               <Link href="/" role="menuitem">Shoots With ZY</Link>
@@ -68,5 +69,4 @@ export default function MenuFunction() {
       </div>
     </>
   )
-
 }
