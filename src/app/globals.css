@@ -30,6 +30,7 @@ Excuse me for any inconsistencies.
   padding: 0;
   scroll-behavior: smooth;
   touch-action: manipulation;
+  color-scheme: dark;
 }
 
 *::selection {
@@ -154,6 +155,20 @@ button:focus-visible {
 
 svg {
   position: absolute;
+}
+
+main:focus-visible {
+  outline: .25rem solid #efbf0480;
+  animation: mainBorderPulse 2s ease infinite;
+}
+
+@keyframes mainBorderPulse {
+  0%, 100% {
+    outline-offset: -5rem;
+  }
+  50% {
+    outline-offset: -7rem;
+  }
 }
 
 /* Main Light Mode */

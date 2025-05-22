@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main>
+    <main id="content" tabIndex={-1}>
       <svg height={0} width={0}>
         <defs>
           <clipPath id="backgroundPath" clipPathUnits="objectBoundingBox">

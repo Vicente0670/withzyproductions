@@ -130,7 +130,7 @@
       background-image: radial-gradient(#555 20%, #111 20%);
       background-size: 1rem 1rem;
       clip-path: url(#backgroundPath);
-      animation: backgroundShift 120s linear infinite;
+      animation: backgroundShift 3s linear infinite;
     }
 
   }
@@ -216,10 +216,10 @@
 
 @keyframes backgroundShift {
   0% {
-    background-position: 0;
+    background-position: 0 0;
   }
   100% {
-    background-position: 100% 100%;
+    background-position: 1rem 1rem;
   }
 }
 

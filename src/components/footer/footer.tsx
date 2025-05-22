@@ -12,6 +12,8 @@ export default function Footer() {
     "Are you sure this is going to work?",
     "Curly fries are not my jam (I'm lying.)",
     "Look at Mr. Boliminary. So... thrilling in his existence.",
+    "I'm saying a bunch of things randomly, because why not?",
+    "Any problems that you have about my vocabulary can go to my lawyer.",
   ];
 
   const key = Math.floor(Math.random() * quote.length);
@@ -44,10 +46,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="quoteContainer">
-        <div className="quoteWrapper">
-          <p className="quote">"{quote[key]}"</p>
-          <p className="author">- Zyshonne Harris</p>
-        </div>
+        <p className="quote">"{quote[key]}"</p>
+        <p className="author">- Zyshonne Harris</p>
       </div>
       <div className="authorContainer">
         <div className="message">
