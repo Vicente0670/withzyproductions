@@ -3,13 +3,11 @@
 import header from "./header.module.css";
 import MenuFunction from "./menuFunction";
 import Link from "next/link";
-import { useState, ReactDOM } from "react";
 
 export default function Header() {
   
   const backgroundGradient = "backgroundGradient",
   backgroundPattern = "backgroundPattern",
-  hiddenObservedDiv = "hiddenObservedDiv",
   backgroundElements: any = [];
   
   function navBarScroll() {

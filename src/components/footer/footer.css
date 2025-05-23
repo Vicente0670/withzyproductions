@@ -135,8 +135,8 @@
       width: auto;
       background: #111111aa;
       outline: .125rem solid var(--FooterBackgroundColor);
-      border-radius: .5rem;
-      backdrop-filter: blur(.5rem);
+      border-radius: .75rem;
+      backdrop-filter: blur(1rem);
       
       p, a {
         font-size: .75rem;

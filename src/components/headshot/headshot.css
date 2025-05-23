@@ -1,0 +1,75 @@
+:root {
+  --rootBackgroundColor: #af881c;
+  --dialogImageBorderColor: var(--button-default);
+  --dialogImageShade: #111;
+  --dialogImageDefault: url("/assets/icons/vicente0670.png");
+}
+
+.dialogBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  pointer-events: none;
+  z-index: 255;
+
+  pointer-events: none;
+  opacity: 0;
+
+  .box {
+    position: absolute;
+  }
+  
+  .backgroundBox {
+    height: 100%;
+    width: 100%;
+    background: var(--rootBackgroundColor);
+    z-index: -1;
+  }
+
+  .portraitBox {
+    aspect-ratio: 1;
+    height: min(66vw, 14rem);
+    width: auto;
+    background-image: var(--dialogImageDefault);
+    background-size: cover;
+    outline: .25rem solid var(--dialogImageBorderColor);
+    border-radius: 30rem;
+    box-shadow: .125rem .33rem .5rem var(--dialogImageShade);
+    image-rendering: pixelated;
+  }
+
+  .textBox {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 10rem;
+    width: 33%;
+    background: black;
+    z-index: -1;
+    
+    .textWrapper {
+      height: 100%;
+      width: 100%;
+      background: white;
+      border-radius: .5rem;
+
+      .text { color: black; }
+
+    }
+
+    .speechAttachment {
+      aspect-ratio: 1 / 2;
+      height: 2rem;
+      background: white;
+      clip-path: polygon(0 50%, 100% 100%, 100% 0);
+    }
+
+  }
+
+}
