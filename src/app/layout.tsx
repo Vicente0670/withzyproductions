@@ -14,7 +14,7 @@ const schema = {
   keywords: "with zy productions, zy productions, withzyproductions, photography, videography, editor, business, professional",
 }
 
-const schema2 = [schema.title, schema.description];
+// const schema2 = [schema.title, schema.description];
 
 export const viewport: Viewport = {
   themeColor: "#f2c12e",

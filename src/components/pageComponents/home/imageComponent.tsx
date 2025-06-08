@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Img(source: {src: string, txt: string}) {

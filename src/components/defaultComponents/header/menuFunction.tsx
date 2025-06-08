@@ -49,17 +49,17 @@ export default function MenuFunction() {
         </div>
         <div className={`menuModalContainer ${isOpen ? "open" : "closed"}`} id="menuModalContainer">
           <div className="menuModal" role="menu">
-            <Link href="/" role="menuitem">Home</Link>
+            <Link href="#" role="menuitem">Home</Link>
             <details>
               <summary role="menuitem"><p>Portfolio</p></summary>
-              <Link href="/" role="menuitem">Gallery</Link>
-              <Link href="/" role="menuitem">Resume</Link>
-              <Link href="/" role="menuitem">On Set With ZY</Link>
-              <Link href="/" role="menuitem">Shoots With ZY</Link>
-              <Link href="/" role="menuitem">Talks With ZY</Link>
+              <Link href="#" role="menuitem">Gallery</Link>
+              <Link href="#" role="menuitem">Resume</Link>
+              <Link href="#" role="menuitem">On Set With ZY</Link>
+              <Link href="#" role="menuitem">Shoots With ZY</Link>
+              <Link href="#" role="menuitem">Talks With ZY</Link>
             </details>
-            <Link href="/" role="menuitem">Contact</Link>
-            <Link href="/" role="menuitem">Rates</Link>
+            <Link href="#" role="menuitem">Contact</Link>
+            <Link href="#" role="menuitem">Rates</Link>
           </div>
         </div>
         <div className={`menuModalBackground ${isOpen ? "open" : "closed"}`} onClick={abortMenu}/>

@@ -2,6 +2,7 @@
 
 import "./imageContainer.css";
 import Img from "./imageComponent";
+import { useEffect } from "react";
 
 export default function ImageContainer() {
 
@@ -78,7 +79,7 @@ export default function ImageContainer() {
   
   }
   
-  if (typeof window !== "undefined") imageSourceAppend();
+  useEffect(() => imageSourceAppend());
 
   return (
     <div className="imageContainerRoot">

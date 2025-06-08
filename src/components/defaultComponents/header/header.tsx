@@ -41,22 +41,22 @@ export default function Header() {
   return (
     <>
       <nav className={header.headerBase} role="navigation">
-        <Link href="/" className={header.logo} aria-label="With ZY Productions Logo."/>
+        <Link href="#" className={header.logo} aria-label="With ZY Productions Logo."/>
         <MenuFunction/>
         <div className={header.linkContainer}>
-          <Link href="/">Home</Link>
+          <Link href="#">Home</Link>
           <ul className={header.menuTitle}>
             <li><Link href="#">Portfolio</Link></li>
             <ul className={header.menuItems}>
-              <li><Link href="/">Gallery</Link></li>
-              <li><Link href="/">Resume</Link></li>
-              <li><Link href="/">On Set With Zy</Link></li>
-              <li><Link href="/">Shoots With Zy</Link></li>
-              <li><Link href="/">Talks With Zy</Link></li>
+              <li><Link href="#">Gallery</Link></li>
+              <li><Link href="#">Resume</Link></li>
+              <li><Link href="#">On Set With Zy</Link></li>
+              <li><Link href="#">Shoots With Zy</Link></li>
+              <li><Link href="#">Talks With Zy</Link></li>
             </ul>
           </ul>
-          <Link href="/">Contact</Link>
-          <Link href="/">Rates</Link>
+          <Link href="#">Contact</Link>
+          <Link href="#">Rates</Link>
         </div>
         <div id={backgroundGradient} className={header.backgroundGradient}/>
         <div id={backgroundPattern} className={header.backgroundPattern}/>

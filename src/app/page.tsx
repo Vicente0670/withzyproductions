@@ -1,6 +1,6 @@
 import page from "./page.module.css";
 import Headshot from "@/components/defaultComponents/headshot/headshot";
-import ImageContainer from "@/components/pageComponents/home/imageContainer";
+import ImageClientPassthrough from "@/components/pageComponents/home/imageClientPassthrough";
 import { Metadata } from "next";
 
 const schema = {
@@ -50,7 +50,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <ImageContainer/>
+          <ImageClientPassthrough/>
           <div className={page.backgroundContent}>
             <div className={page.background}/>
           </div>
