@@ -1,5 +1,6 @@
 import page from "./page.module.css";
-import Headshot from "@/components/headshot/headshot";
+import Headshot from "@/components/defaultComponents/headshot/headshot";
+import ImageContainer from "@/components/pageComponents/home/imageContainer";
 import { Metadata } from "next";
 
 const schema = {
@@ -49,6 +50,7 @@ export default function Page() {
               </div>
             </div>
           </div>
+          <ImageContainer/>
           <div className={page.backgroundContent}>
             <div className={page.background}/>
           </div>
@@ -58,10 +60,28 @@ export default function Page() {
             <div className={page.backgroundLayer2}>
               <div className={page.backgroundLayer3}>
                 <div className={page.introduction}>
+                  
                   <div className={page.titleContainer}>
                     <h1>Meet Zyshonne Harris!</h1>
-                    <p>Hello, I'm Zyshonne Harris!</p>
+                    <h3>Hello, I'm Zyshonne Harris!</h3>
+                    <p>I am a college graduate with a Bachelor's of Arts Communication (Broadcasting) degree, current photographer, videographer, and editor.</p>
                   </div>
+
+                  <div className={page.experienceContainer}>
+                    <h3>My Experience</h3>
+                    <p>I have been the technical director, producer, and on-air talent for 2 years on my 2 hour weekly radio show "Talks With Zy" partnered with UTA Radio. I have also been the social media marketing specialist for the Office of Multicultural Affairs Office at The University of Texas at Arlington as well as the videographer, photographer, and editor.</p>
+                  </div>
+
+                  <div className={page.skillsContainer}>
+                    <h3>My Skills</h3>
+                    <p>I possess a sharp eye for detail, which I use to find even the smallest errors in text. I work well under pressure and can produce high-quality work in short periods of time. I have strong interpersonal skills and work with a wide variety of people. I am skilled with Microsoft Office, Adobe Premiere Pro, Photoshop, and Audition. I am also Hootesuite Certified.</p>
+                  </div>
+
+                  <div className={page.goalsContainer}>
+                    <h3>My Goals</h3>
+                    <p>I am looking for an opportunity to work with a team that runs on clear communication. I want to align myself with a company I believe in and where I can create positive change. I am always looking to learn more and am open to taking on challenging projects. I wish to learn and grow from every position worked and plan to use that to further my knowledge and impact within my broadcasting career.</p>
+                  </div>
+
                 </div>
               </div>
             </div>

@@ -157,6 +157,12 @@ svg {
   position: absolute;
 }
 
+main {
+  margin: 0 auto;
+  max-width: 100rem;
+  box-shadow: 1rem 1rem 4rem #000;
+}
+
 main:focus-visible {
   outline: .25rem solid #efbf0480;
   animation: mainBorderPulse 2s ease infinite;
@@ -171,8 +177,8 @@ main:focus-visible {
   }
 }
 
-/* Main Light Mode */
 /* --- Media Quieries --- */
+/* Light Mode */
 /* Prefers Reduced Animation */
 @media (prefers-reduced-motion: reduce) {
   * {

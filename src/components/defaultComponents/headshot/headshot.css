@@ -1,0 +1,149 @@
+:root {
+  --rootBackgroundColor: #af881c;
+  --dialogImageBorderColor: var(--button-default);
+  --dialogImageShade: #111;
+  --dialogImageDefault: url("/assets/headshots/20.jpg");
+}
+
+.dialogBox {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  background: none;
+  pointer-events: none;
+  overflow: clip;
+  z-index: 256;
+  
+  .box {
+    position: absolute;
+  }
+
+  .portraitBox {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    .portrait {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      margin: 1rem;
+      aspect-ratio: 1;
+      height: 5rem;
+      width: auto;
+      background-image: var(--dialogImageDefault);
+      background-color: #000;
+      background-size: cover;
+      image-rendering: pixelated;
+      outline: .25rem solid var(--dialogImageBorderColor);
+      border-radius: 30rem;
+      box-shadow: .125rem .25rem 1rem .5rem var(--dialogImageShade);
+      animation: portraitIntro 2s ease;
+      pointer-events: all;
+    }
+
+  }
+
+  .textBox {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: last baseline;
+    bottom: 0;
+    margin: 1.5rem;
+    margin-left: 7rem;
+    height: auto;
+    width: auto;
+    animation: bubbleIntro 2s ease;
+    pointer-events: all;
+    z-index: -1;
+    
+    .textWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      min-height: 2rem;
+      max-width: 25rem;
+      background: #eee;
+      border-radius: .5rem;
+
+      .text {
+        font-size: .75rem;
+        color: #111;
+        pointer-events: none;
+      }
+
+    }
+
+    .speechAttachment {
+      margin-top: auto;
+      margin-bottom: 1rem;
+      aspect-ratio: 1 / 2;
+      height: 2rem;
+      background: #eee;
+      clip-path: polygon(0 50%, 100% 100%, 100% 0);
+    }
+
+  }
+
+  .portraitBox .portrait, .textBox {
+    transition: opacity .25s ease;
+    transition-delay: .5s;
+  }
+
+}
+
+.portraitBox .portrait:hover,
+.textBox:hover,
+.dialogBox:has(.portraitBox .portrait:hover) .textBox,
+.dialogBox:has(.textBox:hover) .portraitBox .portrait {
+  transition-delay: 0s;
+  opacity: .15;
+} 
+
+@keyframes backgroundIntro {
+  0%, 50% { top: 0; }
+  100% { top: -100%; }
+}
+
+@keyframes portraitIntro {
+  
+  0% {
+    background-color: #000;
+    transform: translateY(200%);
+    filter: blur(.25rem);
+    opacity: 0;
+  }
+
+  50% {
+    background-color: #fff;
+    transform: translate(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  100% {
+    left: 0;
+    bottom: 0;
+  }
+
+}
+
+@keyframes bubbleIntro {
+  
+  0%, 75% {
+    bottom: -100%;
+    opacity: 0;  
+  }
+  
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
+
+}

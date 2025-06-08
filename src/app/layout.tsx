@@ -1,7 +1,7 @@
 import "./globals.css";
-import Header from "@/components/header/header";
-import Footer from "@/components/footer/footer";
-import SkipNavigation from "@/components/skipNavigation/skipNavigation";
+import Header from "@/components/defaultComponents/header/header";
+import Footer from "@/components/defaultComponents/footer/footer";
+import SkipNavigation from "@/components/defaultComponents/skipNavigation/skipNavigation";
 import { Noto_Serif } from "next/font/google"; 
 import type { Metadata, Viewport } from "next";
 

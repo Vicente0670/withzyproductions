@@ -101,6 +101,7 @@
       }
 
       @container (max-width: 41.99rem) {
+
         .primaryButton .button {
           max-width: 25.25rem;
         }
@@ -121,14 +122,15 @@
     height: max(100%, 100vh);
     width: 100%;
     background-repeat: repeat;
+    filter: drop-shadow(.25rem .5rem .75rem #000000aa);
     z-index: 1;
-    filter: drop-shadow(.25rem .5rem .75rem #00000080);
     
     .background {
       height: 95%;
       width: 70%;
       background-image: radial-gradient(#555 20%, #111 20%);
       background-size: 1rem 1rem;
+      box-shadow: 0 0 1rem .5rem #111 inset;
       clip-path: url(#backgroundPath);
       animation: backgroundShift 3s linear infinite;
     }
@@ -150,7 +152,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    background-size: 4rem 4rem; /* ok, why doesn't this work without !important to begin with? */
+    background-size: 4rem 4rem;
   }
 
   .backgroundLayer1 {
@@ -169,9 +171,8 @@
         
         .introduction {
           display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: .25rem;
+          flex-direction: column;
+          gap: 4rem;
           margin: 2rem;
           padding: 5rem 0;
           height: auto;
@@ -183,7 +184,71 @@
           box-shadow: .125rem .125rem 1rem #000000;
 
           .titleContainer {
-            align-self: start;
+            width: 100%;
+            text-align: center;
+          }
+
+          .titleContainer h1 {
+            margin-bottom: 4rem;
+          }
+          
+          .titleContainer h3 {
+            color: var(--button-default);
+          }
+          
+          .titleContainer p {
+            margin: 0 auto;
+            width: 70%;
+            text-align: left;
+            line-height: 2.5rem;
+          }
+
+          .experienceContainer {
+            width: 100%;
+            text-align: center;
+          }
+
+          .experienceContainer h3 {
+            color: var(--button-default);
+          }
+
+          .experienceContainer p {
+            margin: 0 auto;
+            width: 70%;
+            text-align: left;
+            line-height: 2.5rem;
+          }
+
+          .skillsContainer {
+            width: 100%;
+            text-align: center;
+          }
+
+          .skillsContainer h3 {
+            color: var(--button-default);
+          }
+
+          .skillsContainer p {
+            margin: 0 auto;
+            width: 70%;
+            text-align: left;
+            line-height: 2.5rem;
+          }
+
+          .goalsContainer {
+            width: 100%;
+            text-align: center;
+          }
+
+          .goalsContainer h3 {
+            color: var(--button-default);
+          }
+
+          .goalsContainer p {
+            margin: 0 auto;
+            width: 70%;
+            text-align: left;
+            line-height: 2.5rem;
           }
 
         }
@@ -215,42 +280,27 @@
 }
 
 @keyframes backgroundShift {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 1rem 1rem;
-  }
+  0% { background-position: 0 0; }
+  100% { background-position: 1rem 1rem; }
 }
 
 @keyframes introductionLayer1 {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: 4rem;
-  }
+  0% { background-position-x: 0; }
+  100% { background-position-x: 4rem; }
 }
 
 @keyframes introductionLayer2 {
-  0% {
-    background-position-y: 0;
-  }
-  100% {
-    background-position-y: -4rem;
-  }
+  0% { background-position-y: 0; }
+  100% { background-position-y: -4rem; }
 }
 
 @keyframes introductionLayer3 {
-  0% {
-    background-position-x: -300%;
-  }
-  100% {
-    background-position-x: 400%;
-  }
+  0% { background-position-x: -300%; }
+  100% { background-position-x: 400%; }
 }
 
 @media screen and (max-width: 61rem) {
+
   .frontLander {
 
     .foregroundContent {
@@ -301,16 +351,12 @@
 
     .foregroundContent {
 
-      .titleContainer {
-        margin-top: 10rem;
-      }
+      .titleContainer { margin-top: 10rem; }
 
       .buttonContainer {
         margin-bottom: 10rem;
 
-        .primaryButton .button {
-          max-width: 25.25rem;
-        }
+        .primaryButton .button { max-width: 25.25rem; }
 
       }
 
@@ -345,9 +391,7 @@
     .buttonArray {
       margin: 1rem 0;
 
-      .subButton {
-        max-width: 95%;
-      }
+      .subButton { max-width: 95%; }
 
     }
 

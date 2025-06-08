@@ -1,0 +1,119 @@
+:root {
+  --imageVerticalGap: 4rem;
+  --imageHorizontalGap: 1.5rem;
+  --stripIntroTime: .75s;
+  --stripScrollTime: 46s;
+  --stripScrollDelayTime: .75s;
+}
+
+.imageContainerRoot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  .imageContainerTop, .imageContainerBottom {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    overflow: clip;
+
+    .strip {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: var(--imageHorizontalGap);
+      height: 100%;
+      width: auto;
+
+      img {
+        aspect-ratio: 5 / 4;
+        height: 36%;
+        width: auto;
+        outline: 1px solid #444;
+        object-fit: cover;
+        object-position: 50% 15%;
+        border-radius: .25rem;
+      }
+
+    }
+
+  }
+
+  .imageContainerTop {
+    justify-content: right;
+
+    .strip {
+      animation: stripIntroductionTop var(--stripIntroTime) ease 1, stripScrollTop var(--stripScrollTime) linear infinite;
+      animation-delay: 0s, var(--stripScrollDelayTime);
+
+      img {
+        margin-bottom: var(--imageVerticalGap);
+      }
+
+      img:last-child {
+        margin-right: var(--imageHorizontalGap);
+      }
+
+    }
+
+  }
+
+  .imageContainerBottom {
+
+    .strip {
+      animation: stripIntroductionBottom var(--stripIntroTime) ease 1, stripScrollBottom var(--stripScrollTime) linear infinite;
+      animation-delay: 0s, var(--stripScrollDelayTime);
+
+      img {
+        margin-top: var(--imageVerticalGap);
+      }
+
+      img:first-child {
+        margin-left: var(--imageHorizontalGap);
+      }
+
+    }
+
+  }
+
+}
+
+@keyframes stripIntroductionTop {
+  0% {
+    transform: translateX(-25%);
+    filter: blur(.25rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    filter: none;
+    opacity: 1;
+  }
+}
+
+@keyframes stripIntroductionBottom {
+  0% {
+    transform: translateX(25%);
+    filter: blur(.25rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    filter: none;
+    opacity: 1;
+  }
+}
+
+@keyframes stripScrollTop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+@keyframes stripScrollBottom {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
