@@ -11,7 +11,7 @@ export default function ImageContainer() {
   const imgBase2 = "/assets/bottomRow/";
   const imgType = ".webp";
   
-  let imgSrc: any = [
+  const imgSrc: any = [
     [
       [imgBase1 + "1" + imgType, ""],
       [imgBase1 + "2" + imgType, ""],
@@ -42,13 +42,14 @@ export default function ImageContainer() {
     ]
   ];
   
-  let firstImageArray: any = [], secondImageArray: any = [], firstHalf = [], secondHalf = [], n = 0;
+  const firstImageArray: any = [], secondImageArray: any = [];
+  let firstHalf = [], secondHalf = [], n = 0;
   let firstList = imgSrc[0], secondList = imgSrc[1];
 
 
   function imageSourceAppend() {
 
-    let firstListLength = firstList.length,
+    const firstListLength = firstList.length,
     secondListLength = secondList.length;
 
     for (let i = 0; i < firstListLength; i++) {
