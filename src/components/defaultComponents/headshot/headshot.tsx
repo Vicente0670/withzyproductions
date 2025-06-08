@@ -21,7 +21,7 @@ export default function Headshot(siteName: { page: string }) {
 
   const dialogBox = "dialogBox";
 
-  useEffect(() => dialogSet(), []);
+  useEffect(() => dialogSet());
 
   return (
     <>

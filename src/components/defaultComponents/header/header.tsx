@@ -36,7 +36,7 @@ export default function Header() {
     navBarScroll();
   }
 
-  useEffect(() => eventAppend(), []);
+  useEffect(() => eventAppend());
 
   return (
     <>
