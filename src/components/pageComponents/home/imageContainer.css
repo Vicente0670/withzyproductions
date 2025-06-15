@@ -1,9 +1,8 @@
 :root {
   --imageVerticalGap: 4rem;
   --imageHorizontalGap: 1.5rem;
-  --stripIntroTime: .75s;
+  --stripIntroTime: 1.5s;
   --stripScrollTime: 46s;
-  --stripScrollDelayTime: .75s;
 }
 
 .imageContainerRoot {
@@ -48,7 +47,7 @@
 
     .strip {
       animation: stripIntroductionTop var(--stripIntroTime) ease 1, stripScrollTop var(--stripScrollTime) linear infinite;
-      animation-delay: 0s, var(--stripScrollDelayTime);
+      animation-delay: 0s, var(--stripIntroTime);
 
       img {
         margin-bottom: var(--imageVerticalGap);
@@ -66,7 +65,7 @@
 
     .strip {
       animation: stripIntroductionBottom var(--stripIntroTime) ease 1, stripScrollBottom var(--stripScrollTime) linear infinite;
-      animation-delay: 0s, var(--stripScrollDelayTime);
+      animation-delay: 0s, var(--stripIntroTime);
 
       img {
         margin-top: var(--imageVerticalGap);
@@ -83,7 +82,7 @@
 }
 
 @keyframes stripIntroductionTop {
-  0% {
+  0%, 50% {
     transform: translateX(-25%);
     filter: blur(.25rem);
     opacity: 0;
@@ -96,7 +95,7 @@
 }
 
 @keyframes stripIntroductionBottom {
-  0% {
+  0%, 50% {
     transform: translateX(25%);
     filter: blur(.25rem);
     opacity: 0;

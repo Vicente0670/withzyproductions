@@ -53,6 +53,7 @@
       height: .15rem;
       width: 1.5rem;
       background: #ddd;
+      border-radius: .5rem;
       pointer-events: none;
       transition: transform .25s, opacity .25s;
     }
@@ -194,6 +195,8 @@
         }
 
       }
+
+      summary::marker { display: none; }
       
       summary:focus-visible {
         outline: 1px solid var(--button-default);
@@ -275,7 +278,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: #00000080;
+    background: #000000cc;
     transition: opacity .33s ease;
     transition-delay: opacity 0s;
     pointer-events: none;
@@ -325,7 +328,7 @@
 }
 
 .menuButtonContainer.open {
-  backdrop-filter: blur(.25rem);
+  backdrop-filter: blur(0rem);
   transition-delay: 0s;
   pointer-events: all;
 }

@@ -90,9 +90,11 @@
 
       .mainMap p, .portfolioMap p {
         margin-bottom: .25rem;
+        width: max-content;
+        font-size: 1.25rem;
       }
 
-      .mainMap a, .mainMap p, .portfolioMap a, .portfolioMap p {
+      .mainMap a, .portfolioMap a {
         width: max-content;
         font-size: 1rem;
       }
@@ -146,7 +148,7 @@
       width: auto;
       background: #111111aa;
       outline: .125rem solid var(--FooterBackgroundColor);
-      border-radius: .75rem;
+      border-radius: .25rem;
       backdrop-filter: blur(1rem);
       
       p, a {

@@ -1,8 +1,5 @@
-"use client";
-
 import "./imageContainer.css";
 import Img from "./imageComponent";
-import { useEffect } from "react";
 
 export default function ImageContainer() {
 
@@ -42,103 +39,65 @@ export default function ImageContainer() {
       [imgBase2 + "24" + imgType, ""],
     ]
   ];
-  
-  const firstImageArray: any = [], secondImageArray: any = [];
-  let firstHalf = [], secondHalf = [], n = 0;
-  let firstList = imgSrc[0], secondList = imgSrc[1];
-
-
-  function imageSourceAppend() {
-
-    const firstListLength = firstList.length,
-    secondListLength = secondList.length;
-
-    for (let i = 0; i < firstListLength; i++) {
-
-      n = Math.floor(Math.random() * firstList.length);
-      firstImageArray.push(firstList[n]);
-
-      firstHalf = firstList.slice(0, n);
-      secondHalf = firstList.slice(-(firstList.length - (n + 1)));
-
-      if ((n + 1) === firstList.length) firstList = firstHalf;
-      else firstList = firstHalf.concat(secondHalf);
-    }
-
-    for (let i = 0; i < secondListLength; i++) {
-
-      n = Math.floor(Math.random() * secondList.length);
-      secondImageArray.push(secondList[n]);
-
-      firstHalf = secondList.slice(0, n);
-      secondHalf = secondList.slice(-(secondList.length - (n + 1)));
-
-      if ((n + 1) === secondList.length) secondList = firstHalf;
-      else secondList = firstHalf.concat(secondHalf);
-    }
-  
-  }
-  
-  useEffect(() => imageSourceAppend());
 
   return (
     <div className="imageContainerRoot">
       <div className="imageContainerTop">
         <div className="strip" id={imgTop}>
-          <Img src={firstImageArray[0][0]} txt={firstImageArray[0][1]} />
-          <Img src={firstImageArray[1][0]} txt={firstImageArray[1][1]} />
-          <Img src={firstImageArray[2][0]} txt={firstImageArray[2][1]} />
-          <Img src={firstImageArray[3][0]} txt={firstImageArray[3][1]} />
-          <Img src={firstImageArray[4][0]} txt={firstImageArray[4][1]} />
-          <Img src={firstImageArray[5][0]} txt={firstImageArray[5][1]} />
-          <Img src={firstImageArray[6][0]} txt={firstImageArray[6][1]} />
-          <Img src={firstImageArray[7][0]} txt={firstImageArray[7][1]} />
-          <Img src={firstImageArray[8][0]} txt={firstImageArray[8][1]} />
-          <Img src={firstImageArray[9][0]} txt={firstImageArray[9][1]} />
-          <Img src={firstImageArray[10][0]} txt={firstImageArray[10][1]} />
-          <Img src={firstImageArray[11][0]} txt={firstImageArray[11][1]} />
+          <Img src={imgSrc[0][0][0]} txt={imgSrc[0][0][1]} />
+          <Img src={imgSrc[0][1][0]} txt={imgSrc[0][1][1]} />
+          <Img src={imgSrc[0][2][0]} txt={imgSrc[0][2][1]} />
+          <Img src={imgSrc[0][3][0]} txt={imgSrc[0][3][1]} />
+          <Img src={imgSrc[0][4][0]} txt={imgSrc[0][4][1]} />
+          <Img src={imgSrc[0][5][0]} txt={imgSrc[0][5][1]} />
+          <Img src={imgSrc[0][6][0]} txt={imgSrc[0][6][1]} />
+          <Img src={imgSrc[0][7][0]} txt={imgSrc[0][7][1]} />
+          <Img src={imgSrc[0][8][0]} txt={imgSrc[0][8][1]} />
+          <Img src={imgSrc[0][9][0]} txt={imgSrc[0][9][1]} />
+          <Img src={imgSrc[0][10][0]} txt={imgSrc[0][10][1]} />
+          <Img src={imgSrc[0][11][0]} txt={imgSrc[0][11][1]} />
 
-          <Img src={firstImageArray[0][0]} txt={firstImageArray[0][1]} />
-          <Img src={firstImageArray[1][0]} txt={firstImageArray[1][1]} />
-          <Img src={firstImageArray[2][0]} txt={firstImageArray[2][1]} />
-          <Img src={firstImageArray[3][0]} txt={firstImageArray[3][1]} />
-          <Img src={firstImageArray[4][0]} txt={firstImageArray[4][1]} />
-          <Img src={firstImageArray[5][0]} txt={firstImageArray[5][1]} />
-          <Img src={firstImageArray[6][0]} txt={firstImageArray[6][1]} />
-          <Img src={firstImageArray[7][0]} txt={firstImageArray[7][1]} />
-          <Img src={firstImageArray[8][0]} txt={firstImageArray[8][1]} />
-          <Img src={firstImageArray[9][0]} txt={firstImageArray[9][1]} />
-          <Img src={firstImageArray[10][0]} txt={firstImageArray[10][1]} />
-          <Img src={firstImageArray[11][0]} txt={firstImageArray[11][1]} />
+          <Img src={imgSrc[0][0][0]} txt={imgSrc[0][0][1]} />
+          <Img src={imgSrc[0][1][0]} txt={imgSrc[0][1][1]} />
+          <Img src={imgSrc[0][2][0]} txt={imgSrc[0][2][1]} />
+          <Img src={imgSrc[0][3][0]} txt={imgSrc[0][3][1]} />
+          <Img src={imgSrc[0][4][0]} txt={imgSrc[0][4][1]} />
+          <Img src={imgSrc[0][5][0]} txt={imgSrc[0][5][1]} />
+          <Img src={imgSrc[0][6][0]} txt={imgSrc[0][6][1]} />
+          <Img src={imgSrc[0][7][0]} txt={imgSrc[0][7][1]} />
+          <Img src={imgSrc[0][8][0]} txt={imgSrc[0][8][1]} />
+          <Img src={imgSrc[0][9][0]} txt={imgSrc[0][9][1]} />
+          <Img src={imgSrc[0][10][0]} txt={imgSrc[0][10][1]} />
+          <Img src={imgSrc[0][11][0]} txt={imgSrc[0][11][1]} />
         </div>
       </div>
       <div className="imageContainerBottom">
         <div className="strip" id={imgBottom}>
-          <Img src={secondImageArray[0][0]} txt={secondImageArray[0][1]} />
-          <Img src={secondImageArray[1][0]} txt={secondImageArray[1][1]} />
-          <Img src={secondImageArray[2][0]} txt={secondImageArray[2][1]} />
-          <Img src={secondImageArray[3][0]} txt={secondImageArray[3][1]} />
-          <Img src={secondImageArray[4][0]} txt={secondImageArray[4][1]} />
-          <Img src={secondImageArray[5][0]} txt={secondImageArray[5][1]} />
-          <Img src={secondImageArray[6][0]} txt={secondImageArray[6][1]} />
-          <Img src={secondImageArray[7][0]} txt={secondImageArray[7][1]} />
-          <Img src={secondImageArray[8][0]} txt={secondImageArray[8][1]} />
-          <Img src={secondImageArray[9][0]} txt={secondImageArray[9][1]} />
-          <Img src={secondImageArray[10][0]} txt={secondImageArray[10][1]} />
-          <Img src={secondImageArray[11][0]} txt={secondImageArray[11][1]} />
+          <Img src={imgSrc[1][0][0]} txt={imgSrc[1][0][1]} />
+          <Img src={imgSrc[1][1][0]} txt={imgSrc[1][1][1]} />
+          <Img src={imgSrc[1][2][0]} txt={imgSrc[1][2][1]} />
+          <Img src={imgSrc[1][3][0]} txt={imgSrc[1][3][1]} />
+          <Img src={imgSrc[1][4][0]} txt={imgSrc[1][4][1]} />
+          <Img src={imgSrc[1][5][0]} txt={imgSrc[1][5][1]} />
+          <Img src={imgSrc[1][6][0]} txt={imgSrc[1][6][1]} />
+          <Img src={imgSrc[1][7][0]} txt={imgSrc[1][7][1]} />
+          <Img src={imgSrc[1][8][0]} txt={imgSrc[1][8][1]} />
+          <Img src={imgSrc[1][9][0]} txt={imgSrc[1][9][1]} />
+          <Img src={imgSrc[1][10][0]} txt={imgSrc[1][10][1]} />
+          <Img src={imgSrc[1][11][0]} txt={imgSrc[1][11][1]} />
 
-          <Img src={secondImageArray[0][0]} txt={secondImageArray[0][1]} />
-          <Img src={secondImageArray[1][0]} txt={secondImageArray[1][1]} />
-          <Img src={secondImageArray[2][0]} txt={secondImageArray[2][1]} />
-          <Img src={secondImageArray[3][0]} txt={secondImageArray[3][1]} />
-          <Img src={secondImageArray[4][0]} txt={secondImageArray[4][1]} />
-          <Img src={secondImageArray[5][0]} txt={secondImageArray[5][1]} />
-          <Img src={secondImageArray[6][0]} txt={secondImageArray[6][1]} />
-          <Img src={secondImageArray[7][0]} txt={secondImageArray[7][1]} />
-          <Img src={secondImageArray[8][0]} txt={secondImageArray[8][1]} />
-          <Img src={secondImageArray[9][0]} txt={secondImageArray[9][1]} />
-          <Img src={secondImageArray[10][0]} txt={secondImageArray[10][1]} />
-          <Img src={secondImageArray[11][0]} txt={secondImageArray[11][1]} />
+          <Img src={imgSrc[1][0][0]} txt={imgSrc[1][0][1]} />
+          <Img src={imgSrc[1][1][0]} txt={imgSrc[1][1][1]} />
+          <Img src={imgSrc[1][2][0]} txt={imgSrc[1][2][1]} />
+          <Img src={imgSrc[1][3][0]} txt={imgSrc[1][3][1]} />
+          <Img src={imgSrc[1][4][0]} txt={imgSrc[1][4][1]} />
+          <Img src={imgSrc[1][5][0]} txt={imgSrc[1][5][1]} />
+          <Img src={imgSrc[1][6][0]} txt={imgSrc[1][6][1]} />
+          <Img src={imgSrc[1][7][0]} txt={imgSrc[1][7][1]} />
+          <Img src={imgSrc[1][8][0]} txt={imgSrc[1][8][1]} />
+          <Img src={imgSrc[1][9][0]} txt={imgSrc[1][9][1]} />
+          <Img src={imgSrc[1][10][0]} txt={imgSrc[1][10][1]} />
+          <Img src={imgSrc[1][11][0]} txt={imgSrc[1][11][1]} />
         </div>
       </div>
     </div>

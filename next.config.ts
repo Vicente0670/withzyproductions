@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
-// module.exports = {
-//   reactStrictMode: false,
-// };
+module.exports = {
+  reactStrictMode: false,
+};
 
 const nextConfig: NextConfig = {
   // Stuff goes here

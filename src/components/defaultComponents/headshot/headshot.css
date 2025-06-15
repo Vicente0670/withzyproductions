@@ -3,6 +3,7 @@
   --dialogImageBorderColor: var(--button-default);
   --dialogImageShade: #111;
   --dialogImageDefault: url("/assets/headshots/20.jpg");
+  --stubRotateTiming: cubic-bezier(.2, .8, .25, 1);
 }
 
 .dialogBox {
@@ -14,6 +15,7 @@
   width: 100%;
   border: none;
   background: none;
+  transition: transform .75s ease;
   pointer-events: none;
   overflow: clip;
   z-index: 256;
@@ -26,17 +28,16 @@
     display: flex;
     height: 100%;
     width: 100%;
+    transition: transform .25s ease, opacity .25s ease;
 
     .portrait {
       position: absolute;
       left: 0;
       bottom: 0;
       margin: 1rem;
-      aspect-ratio: 1;
       height: 5rem;
       width: auto;
-      background-image: var(--dialogImageDefault);
-      background-color: #000;
+      background-color: #fff;
       background-size: cover;
       image-rendering: pixelated;
       outline: .25rem solid var(--dialogImageBorderColor);
@@ -44,8 +45,46 @@
       box-shadow: .125rem .25rem 1rem .5rem var(--dialogImageShade);
       animation: portraitIntro 2s ease;
       pointer-events: all;
+      overflow: clip;
+
+      .image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
     }
 
+    .portraitClose {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      margin: 1rem;
+      aspect-ratio: 1;
+      height: 5rem;
+      width: auto;
+      background-color: transparent;
+      border-radius: 30rem;
+      animation: portraitButtonIntro 2s ease;
+      pointer-events: all;
+      cursor: pointer;
+
+      .stub {
+        position: absolute;
+        height: .33rem;
+        width: 3rem;
+        background: #eee;
+        border-radius: .5rem;
+        transition: .25s ease;
+        filter: drop-shadow(.125rem .125rem .25rem #eee);
+        opacity: 0;
+      }
+
+    }
+    
   }
 
   .textBox {
@@ -58,6 +97,7 @@
     margin-left: 7rem;
     height: auto;
     width: auto;
+    transition: transform .25s ease;
     animation: bubbleIntro 2s ease;
     pointer-events: all;
     z-index: -1;
@@ -91,20 +131,111 @@
 
   }
 
+  .revealBox {
+    position: absolute;
+    left: -2rem;
+    bottom: 1rem;
+    height: 5rem;
+    width: 1rem;
+    transition: left .25s ease;
+    transition-delay: 0s;
+    filter: drop-shadow(.125rem .125rem .25rem #000);
+    pointer-events: all;
+    overflow: clip;
+    
+    .revealButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      height: 100%;
+      width: 1rem;
+      clip-path: url(#dialogPath);
+      border-radius: 0;
+
+      .stub {
+        position: absolute;
+        height: .15rem;
+        width: .66rem;
+        background-color: #eee;
+        border-radius: .25rem;
+        transition: background-color .25s ease;
+      }
+
+      .stub:first-child {
+        transform: translateY(.18rem) rotate(45deg);
+      }
+
+      .stub:last-child {
+        transform: translateY(-.18rem) rotate(-45deg);
+      }
+
+    }
+
+    .revealButton:hover {
+      background-color: #eee;
+
+      .stub {
+        background-color: #111;
+        transition: none;
+      }
+
+    }
+
+  }
+
   .portraitBox .portrait, .textBox {
     transition: opacity .25s ease;
+    transition-delay: .2s;
+  }
+
+}
+
+.dialogBox.closed {
+
+  .portraitBox {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+ 
+  .textBox {
+    transition: transform .25s ease, opacity .25s ease;
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  
+  .revealBox {
+    left: 0;
     transition-delay: .5s;
   }
 
 }
 
-.portraitBox .portrait:hover,
+.dialogBox.footerInView { transform: translateY(100vh); }
+
+.portraitBox:has(.portraitClose:hover) .portrait,
 .textBox:hover,
-.dialogBox:has(.portraitBox .portrait:hover) .textBox,
+.dialogBox:has(.portraitBox .portraitClose:hover) .textBox,
 .dialogBox:has(.textBox:hover) .portraitBox .portrait {
   transition-delay: 0s;
   opacity: .15;
-} 
+}
+
+.dialogBox .portraitBox .portraitClose:hover .stub, .dialogBox:has(.textBox:hover) .portraitBox .portraitClose .stub {
+  opacity: 1;
+}
+
+.dialogBox .portraitBox .portraitClose:hover .stub:first-child,
+.dialogBox:has(.textBox:hover) .portraitBox .portraitClose .stub:first-child {
+  transform: rotate(45deg);
+  opacity: 1;
+}
+
+.dialogBox .portraitBox .portraitClose:hover .stub:last-child,
+.dialogBox:has(.textBox:hover) .portraitBox .portraitClose .stub:last-child {
+  transform: rotate(-45deg);
+  opacity: 1;
+}
 
 @keyframes backgroundIntro {
   0%, 50% { top: 0; }
@@ -113,14 +244,14 @@
 
 @keyframes portraitIntro {
   
-  0% {
+  0%, 25% {
     background-color: #000;
     transform: translateY(200%);
     filter: blur(.25rem);
     opacity: 0;
   }
 
-  50% {
+  75% {
     background-color: #fff;
     transform: translate(0);
     filter: blur(0);
@@ -129,7 +260,26 @@
 
   100% {
     left: 0;
-    bottom: 0;
+    bottom: 0; 
+  }
+
+}
+
+@keyframes portraitButtonIntro {
+  
+  0%, 25% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translate(0);
+    opacity: 0;
+  }
+
+  100% {
+    left: 0;
+    opacity: 1;
   }
 
 }
@@ -138,7 +288,7 @@
   
   0%, 75% {
     bottom: -100%;
-    opacity: 0;  
+    opacity: 0;
   }
   
   100% {

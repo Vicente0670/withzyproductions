@@ -30,8 +30,8 @@ export default function MenuFunction() {
       }
       
       else {
-        document.documentElement.style.overflowY = "hidden";
         clicked(true);
+        document.documentElement.style.overflowY = "hidden";
       }
 
     }

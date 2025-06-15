@@ -3,15 +3,17 @@
 I have a specific way that I structure my CSS elements, following a pattern that I've created in my own brain.
 Excuse me for any inconsistencies.
 
+^ No excuse for what I have up here.
+
 */
 :root {
   --universal-background: #111;
 
-  --paragraph-text: #999;
+  --paragraph-text: #adadad;
   --paragraph-highlight: #fbd540c5;
-  --header-color: #eee;
+  --primary-header-color: #eee;
 
-  --button-default: #efbf04;
+  --button-default: #efbf04; /* This just became the "accent color". */
   --button-default-hover: #faf193;
   --button-default-active: #f9f3c0;
   --button-default-focus: #f3de72;
@@ -22,6 +24,8 @@ Excuse me for any inconsistencies.
   --link-hover: #eefff1;
   --link-select-default: #555;
   --link-select-hover: #efe;
+
+  --main-max-width: 130rem;
 }
 
 /* Attributes */
@@ -54,31 +58,38 @@ html, body {
 
 /* Text */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--header-color);
+  color: var(--button-default);
 }
 
 h1 {
-  font-size: clamp(3rem, 6vw + 1rem, 5rem);
+  font-size: 4rem;
+  font-size: clamp(3rem, 6vw + 1.75rem, 5rem);
+  color: var(--primary-header-color);
 }
 
 h2 {
-  font-size: 3.5rem;
+  font-size: 3.25rem;
+  font-size: clamp(3rem, 7vw + 1rem, 3.75rem);
 }
 
 h3 {
-  font-size: 3rem;
+  font-size: 2.75rem;
+  font-size: clamp(2.25rem, 7vw + .75rem, 3rem);
 }
 
 h4 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 4vw + 1rem, 2.5rem);
 }
 
 h5 {
-  font-size: clamp(1.5rem, .75vw + 1rem, 2rem);
+  font-size: 1.75rem;
+  font-size: clamp(1.5rem, 2vw + 1.15rem, 2rem);
 }
 
 h6 {
-  font-size: 1.5rem;
+  font-size: 1.66rem;
+  font-size: clamp(1.33rem, 1vw + 1rem, 1.66rem);
 }
 
 p {
@@ -159,8 +170,8 @@ svg {
 
 main {
   margin: 0 auto;
-  max-width: 100rem;
-  box-shadow: 1rem 1rem 4rem #000;
+  max-width: var(--main-max-width);
+  box-shadow: 2rem 1rem 8rem .5rem #000;
 }
 
 main:focus-visible {

@@ -1,6 +1,9 @@
 import page from "./page.module.css";
 import Headshot from "@/components/defaultComponents/headshot/headshot";
-import ImageClientPassthrough from "@/components/pageComponents/home/imageClientPassthrough";
+import LearnAboutMe from "@/components/pageComponents/home/buttonLearnAboutMe";
+import TitleContainer from "@/components/pageComponents/home/containers/titleContainer/titleContainer";
+import ExperienceContainer from "@/components/pageComponents/home/containers/experienceContainer/experienceContainer";
+import ImageContainer from "@/components/pageComponents/home/imageContainer";
 import { Metadata } from "next";
 
 const schema = {
@@ -21,10 +24,17 @@ export const metadata: Metadata = {
   },
 }
 
+
 export default function Page() {
+
+  const container = {
+    title: "titleContainer",
+    experience: "experienceContainer",
+  }
+
   return (
     <>
-      <Headshot page={schema.page} />
+      <Headshot container={container} schema={schema} />
       <main id="content" tabIndex={-1}>
         <svg height={0} width={0}>
           <defs>
@@ -41,7 +51,7 @@ export default function Page() {
             </div>
             <div className={page.buttonContainer}>
               <div className={page.primaryButton}>
-                <button className={page.button} id="button-walkthrough" tabIndex={0}>Learn more about me!</button>
+                <LearnAboutMe elementIds={container} />
               </div>
               <div className={page.buttonArray}>
                 <button className={page.subButton} id="button-portfolio">Portfolio</button>
@@ -50,7 +60,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <ImageClientPassthrough/>
+          <ImageContainer />
           <div className={page.backgroundContent}>
             <div className={page.background}/>
           </div>
@@ -61,16 +71,8 @@ export default function Page() {
               <div className={page.backgroundLayer3}>
                 <div className={page.introduction}>
                   
-                  <div className={page.titleContainer}>
-                    <h1>Meet Zyshonne Harris!</h1>
-                    <h3>Hello, I'm Zyshonne Harris!</h3>
-                    <p>I am a college graduate with a Bachelor's of Arts Communication (Broadcasting) degree, current photographer, videographer, and editor.</p>
-                  </div>
-
-                  <div className={page.experienceContainer}>
-                    <h3>My Experience</h3>
-                    <p>I have been the technical director, producer, and on-air talent for 2 years on my 2 hour weekly radio show "Talks With Zy" partnered with UTA Radio. I have also been the social media marketing specialist for the Office of Multicultural Affairs Office at The University of Texas at Arlington as well as the videographer, photographer, and editor.</p>
-                  </div>
+                  <TitleContainer id={container.title} />
+                  <ExperienceContainer id={container.experience} />
 
                   <div className={page.skillsContainer}>
                     <h3>My Skills</h3>
@@ -88,6 +90,7 @@ export default function Page() {
           </div>
         </div>
       </main>
+
     </>
   )
 }

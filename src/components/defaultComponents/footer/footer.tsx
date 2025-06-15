@@ -12,7 +12,7 @@ export default function Footer() {
   const key = Math.floor(Math.random() * quote.length);
 
   return (
-    <footer className="footer" role="contentinfo">
+    <footer className="footer" id="footer" role="contentinfo">
       <div className="logoContainer">
         <div className="logoWrapper">
           <div className="logo"/>
@@ -22,14 +22,14 @@ export default function Footer() {
       <div className="sitemapContainer">
         <div className="sitemapWrapper">
           <div className="mainMap">
-            <p>Main Site Map</p>
+            <p>Site Map</p>
             <Link href="/">Main Page</Link>
             <Link href="/">Portfolio</Link>
             <Link href="/">Contact</Link>
             <Link href="/">Rates</Link>
           </div>
           <div className="portfolioMap">
-            <p>Portfolio Site Map</p>
+            <p>Portfolio Map</p>
             <Link href="/">Gallery</Link>
             <Link href="/">Resume</Link>
             <Link href="/">On Set With Zy</Link>

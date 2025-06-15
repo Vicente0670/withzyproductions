@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 export default function Img(source: {src: string, txt: string}) {
@@ -16,7 +14,7 @@ export default function Img(source: {src: string, txt: string}) {
       height={metrics.height}
       width={metrics.width}
       className="img"
-      priority={false}
+      priority={true}
     />
   )
 }
