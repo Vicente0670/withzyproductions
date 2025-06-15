@@ -50,10 +50,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="socialsContainer">
-        <Link href="/" id="link" className="instagram"></Link>
-        <Link href="/" id="link" className="spotify"></Link>
-        <Link href="/" id="link" className="email"></Link>
-        <Link href="/" id="link" className="phone"></Link>
+        <Link href="/" id="link" className="instagram" title="Instagram"></Link>
+        <Link href="/" id="link" className="spotify" title="Spotify"></Link>
+        <Link href="/" id="link" className="email" title="Email"></Link>
+        <Link href="/" id="link" className="phone" title="Phone Number"></Link>
       </div>
     </footer>
   )
