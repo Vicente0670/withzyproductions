@@ -25,24 +25,28 @@ export default function ExperienceContainer(experience: { id: string }) {
               height={metrics.height}
               width={metrics.width}
               className="image"
+              priority={false}
             />
             <Image src="/assets/topRow/4.webp"
               alt="Frame Image from Harris"
               height={metrics.height}
               width={metrics.width}
               className="image"
+              priority={false}
             />
             <Image src="/assets/bottomRow/21.webp"
               alt="Frame Image from Harris"
               height={metrics.height}
               width={metrics.width}
               className="image"
+              priority={false}
             />
             <Image src="/assets/bottomRow/23.webp"
               alt="Frame Image from Harris"
               height={metrics.height}
               width={metrics.width}
               className="image"
+              priority={false}
             />
           </div>
         </div>

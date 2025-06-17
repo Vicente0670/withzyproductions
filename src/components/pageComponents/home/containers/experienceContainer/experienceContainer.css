@@ -1,6 +1,8 @@
 :root {
   --experience-mini-container-max-width: 30rem;
   --experience-mini-container-width: clamp(10rem, 100%, var(--experience-mini-container-max-width));
+  --experience-gap: .75rem;
+  --exp-gap-half: var(--experience-gap) / 2; /* For the grid animation. Because thanks, Chrome and Safari. */
 }
 
 .experienceContainer {
@@ -41,16 +43,16 @@
 
       .frame {
         display: grid;
-        grid-template-columns: 20% 80%;
-        grid-template-rows: 20% 80%;
-        gap: 0rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: var(--experience-gap);
         aspect-ratio: 1;
         height: 100%;
         width: 100%;
         background: #aaa;
         outline: .125rem solid #aaa;
         border-radius: 1rem;
-        /* animation: columnSwitch 15s ease infinite; */
+        animation: columnSwitch 15s ease infinite;
         overflow: clip;
 
         .image {
@@ -71,19 +73,19 @@
 
 @keyframes columnSwitch {
   0%, 12.5%, 100% {
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-columns: calc(75% - var(--exp-gap-half)) calc(25% - var(--exp-gap-half));
+    grid-template-rows: calc(75% - var(--exp-gap-half)) calc(25% - var(--exp-gap-half));
   }
   25%, 37.5% {
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-columns: calc(25% - var(--exp-gap-half)) calc(75% - var(--exp-gap-half));
+    grid-template-rows: calc(75% - var(--exp-gap-half)) calc(25% - var(--exp-gap-half));
   }
   50%, 62.5% {
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: calc(25% - var(--exp-gap-half)) calc(75% - var(--exp-gap-half));
+    grid-template-rows: calc(25% - var(--exp-gap-half)) calc(75% - var(--exp-gap-half));
   }
   75%, 87.5% {
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-columns: calc(75% - var(--exp-gap-half)) calc(25% - var(--exp-gap-half));
+    grid-template-rows: calc(25% - var(--exp-gap-half)) calc(75% - var(--exp-gap-half));
   }
 }
