@@ -13,10 +13,14 @@ export default function Footer() {
 
   return (
     <footer className="footer" id="footer" role="contentinfo">
+      <div className="beforeAndAfterContainer">
+        <div className="before" />
+        <div className="after" />
+      </div>
       <div className="logoContainer">
         <div className="logoWrapper">
           <div className="logo"/>
-          <Link href="/">With <span>Zy</span> Productions</Link>
+          <Link href="/">With <span>ZY</span> Productions</Link>
         </div>
       </div>
       <div className="sitemapContainer">
@@ -30,18 +34,16 @@ export default function Footer() {
           </div>
           <div className="portfolioMap">
             <p>Portfolio Map</p>
-            <Link href="/">Gallery</Link>
-            <Link href="/">Resume</Link>
+            <Link href="/">Highlights</Link>
+            <Link href="/">Modeling/Acting</Link>
             <Link href="/">On Set With Zy</Link>
             <Link href="/">Shoots With Zy</Link>
-            <Link href="/">Talks With Zy</Link>
           </div>
         </div>
       </div>
       <div className="quoteContainer">
         <p className="quote">"{quote[key]}"</p>
         <p className="author">- Zyshonne Harris</p>
-        <p className="hint">(Refresh the page for a new quote! If you want me to add a new quote, want to make the quote static, or want to remove them entirely, just ask!)</p>
       </div>
       <div className="authorContainer">
         <div className="message">
@@ -51,6 +53,7 @@ export default function Footer() {
       </div>
       <div className="socialsContainer">
         <Link href="/" id="link" className="instagram" title="Instagram"></Link>
+        <Link href="/" id="link" className="github" title="GitHub"></Link>
         <Link href="/" id="link" className="spotify" title="Spotify"></Link>
         <Link href="/" id="link" className="email" title="Email"></Link>
         <Link href="/" id="link" className="phone" title="Phone Number"></Link>

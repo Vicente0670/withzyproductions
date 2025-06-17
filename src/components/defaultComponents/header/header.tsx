@@ -19,15 +19,9 @@ export default function Header() {
     }
     
     if (window.scrollY > (window.screen.height / 4)) {
-      for (let i = 0; i < backgroundElements.length; i++) {
-        backgroundElements[i].style.opacity = "1";
-      }
+      for (let i = 0; i < backgroundElements.length; i++) { backgroundElements[i].style.opacity = "1"; }
     }
-    else {
-      for (let i = 0; i < backgroundElements.length; i++) {
-        backgroundElements[i].style.opacity = "0";
-      }
-    }
+    else for (let i = 0; i < backgroundElements.length; i++) { backgroundElements[i].style.opacity = "0"; }
     
   }
 
@@ -48,11 +42,10 @@ export default function Header() {
           <ul className={header.menuTitle}>
             <li><Link href="#">Portfolio</Link></li>
             <ul className={header.menuItems}>
-              <li><Link href="#">Gallery</Link></li>
-              <li><Link href="#">Resume</Link></li>
+              <li><Link href="#">Highlights</Link></li>
+              <li><Link href="#">Modeling/Acting</Link></li>
               <li><Link href="#">On Set With Zy</Link></li>
               <li><Link href="#">Shoots With Zy</Link></li>
-              <li><Link href="#">Talks With Zy</Link></li>
             </ul>
           </ul>
           <Link href="#">Contact</Link>

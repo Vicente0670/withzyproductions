@@ -52,11 +52,10 @@ export default function MenuFunction() {
             <Link href="#" role="menuitem">Home</Link>
             <details>
               <summary role="menuitem"><p>Portfolio</p></summary>
-              <Link href="#" role="menuitem">Gallery</Link>
-              <Link href="#" role="menuitem">Resume</Link>
+              <Link href="#" role="menuitem">Highlights</Link>
+              <Link href="#" role="menuitem">Modeling/Acting</Link>
               <Link href="#" role="menuitem">On Set With ZY</Link>
               <Link href="#" role="menuitem">Shoots With ZY</Link>
-              <Link href="#" role="menuitem">Talks With ZY</Link>
             </details>
             <Link href="#" role="menuitem">Contact</Link>
             <Link href="#" role="menuitem">Rates</Link>

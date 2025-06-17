@@ -167,7 +167,7 @@ export default function Headshot({ container, schema }: any) {
 
   return (
     <>
-      <dialog id={dialogBox} className={`dialogBox ${isOpen ? "" : "closed"} ${intersectingFooter ? "footerInView" : ""}`} aria-label="Harris's Headshot">
+      <section id={dialogBox} className={`dialogBox ${isOpen ? "" : "closed"} ${intersectingFooter ? "footerInView" : ""}`} aria-label="Harris's Headshot">
         <svg height={0} width={0}>
           <defs>
             <clipPath id="dialogPath" clipPathUnits="objectBoundingBox">
@@ -202,7 +202,7 @@ export default function Headshot({ container, schema }: any) {
             <div className="stub" />
           </button>
         </div>
-      </dialog>
+      </section>
     </>
   )
 }

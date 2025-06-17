@@ -4,12 +4,24 @@
 }
 
 .titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0 .5rem;
+  min-height: 50vh;
 
   .title {
     margin-bottom: 3rem;
     width: 100%;
     text-align: center;
+
+    p {
+      font-size: clamp(1.5rem, 2vw + 1.15rem, 2rem);
+      font-weight: 700;
+      color: var(--button-default);
+    }
+
   }
 
   .content {

@@ -10,32 +10,32 @@ export default function TitleContainer(title: {id: string}) {
   return (
     <div className="titleContainer" id={title.id}>
       <div className="title">
-        <h5>Greetings, I'm</h5>
+        <p>Greetings, I'm</p>
         <h2>Zyshonne Harris</h2>
       </div>
       <div className="content">
         <div className="container text">
-          <p>I am a college graduate with a <span>Bachelor's of Arts in Communication</span>, majoring in Broadcasting. I'm a current <span>photographer</span>, <span>videographer</span>, and <span>editor</span>, and are passionate about my work and expertise.</p>
+          <p>With a background in <span>commercial photography</span>, <span>digital design</span>, and <span>media production education</span>, I bring over <span>3 years</span> of experience teaching creative disciplines while <span>leading real-world projects</span> like student broadcasting.</p>
           <br/>
-          <p>Currently, I'm employed full-time at [Place], working amongst a team of individuals who I stand out in, whilst sharing the dedication my team possesses towards media production.</p>
+          <p>My work as a <span>technical director</span>, <span>producer</span>, and <span>on-air talent</span> for UTA Radio allows me to combine academic insight with hands-on expertise to deliver <span>compelling</span>, <span>high-quality</span> visual content with a <span>strong creative vision</span>.</p>
         </div>
         <div className="container gallery">
           <Image
-            src="/assets/topRow/3.webp"
+            src="/assets/bottomRow/18.webp"
             alt="Carousel Image"
             height={metrics.height}
             width={metrics.width}
             className="image"
           />
           <Image
-            src="/assets/bottomRow/17.webp"
+            src="/assets/bottomRow/20.webp"
             alt="Carousel Image"
             height={metrics.height}
             width={metrics.width}
             className="image"
           />
           <Image
-            src="/assets/topRow/7.webp"
+            src="/assets/bottomRow/24.webp"
             alt="Carousel Image"
             height={metrics.height}
             width={metrics.width}

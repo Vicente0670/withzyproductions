@@ -14,19 +14,19 @@ export default function ExperienceContainer(experience: { id: string }) {
       </div>
       <div className="content">
         <div className="container text">
-          <p>I have been the <span>technical director</span>, <span>producer</span>, and <span>on-air talent</span> for <span>2 years</span> on my 2 hour weekly radio show <span>"Talks With Zy"</span>, partnered with UTA Radio.</p>
+          <p>As a <span>full-time model</span> and <span>actor</span> with a background in <span>vocal performance</span>, I bring a <span>creative</span>, <span>performance-driven</span> approach to photography, videography, and editing.</p>
           <br/>
-          <p>I have also been the <span>social media marketing specialist</span> for the <span>Office of Multicultural Affairs Office</span> at The University of Texas at Arlington as well as the videographer, photographer, and editor.</p>
+          <p>My <span>on-camera experience</span> allows me to <span>guide talent</span> naturally, <span>capture genuine emotion</span>, and <span>produce visuals</span> that are both <span>polished</span> and <span>purposeful</span>—blending artistic insight with storytelling impact.</p>
         </div>
         <div className="container gallery">
           <div className="frame">
-            <Image src="/assets/bottomRow/20.webp"
+            <Image src="/assets/topRow/5.webp"
               alt="Frame Image from Harris"
               height={metrics.height}
               width={metrics.width}
               className="image"
             />
-            <Image src="/assets/bottomRow/19.webp"
+            <Image src="/assets/topRow/4.webp"
               alt="Frame Image from Harris"
               height={metrics.height}
               width={metrics.width}

@@ -181,10 +181,10 @@ main:focus-visible {
 
 @keyframes mainBorderPulse {
   0%, 100% {
-    outline-offset: -5rem;
+    outline-offset: -.75rem;
   }
   50% {
-    outline-offset: -7rem;
+    outline-offset: -.25rem;
   }
 }
 

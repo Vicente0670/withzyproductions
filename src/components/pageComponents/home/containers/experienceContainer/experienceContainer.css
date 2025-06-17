@@ -4,7 +4,12 @@
 }
 
 .experienceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0 .5rem;
+  min-height: 50vh;
 
   .title {
     margin-bottom: 3rem;
@@ -22,33 +27,36 @@
 
     .container {
       padding: 0 1.5rem;
-      width: var(--experience-mini-container-width);
     }
 
-    .text { margin-bottom: 3rem; }
+    .text {
+      width: calc(var(--experience-mini-container-width) - 1rem);
+      margin-bottom: 3rem;
+    }
 
     .gallery {
+      width: var(--experience-mini-container-width);
       filter: drop-shadow(.5rem .5rem 1rem #000);
       perspective: 60rem;
 
       .frame {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: .75rem;
-        margin: auto;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: 20% 80%;
+        gap: 0rem;
         aspect-ratio: 1;
+        height: 100%;
         width: 100%;
         background: #aaa;
         outline: .125rem solid #aaa;
         border-radius: 1rem;
-        animation: columnSwitch 15s ease infinite;
+        /* animation: columnSwitch 15s ease infinite; */
         overflow: clip;
 
         .image {
+          aspect-ratio: 1;
           height: 100%;
           width: 100%;
-          background: red;
           object-fit: cover;
           object-position: center 25%;
         }
@@ -63,19 +71,19 @@
 
 @keyframes columnSwitch {
   0%, 12.5%, 100% {
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
   }
   25%, 37.5% {
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr 1fr;
   }
   50%, 62.5% {
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
   }
   75%, 87.5% {
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
   }
 }

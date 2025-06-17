@@ -13,7 +13,8 @@
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "a b c"
-    "d b e";
+    "d b e"
+    "f f f";
   padding-top: 1rem;
   height: min-content;
   width: 100%;
@@ -28,8 +29,10 @@
     display: flex;
     justify-content: left;
     align-items: center;
+    position: relative;
     grid-area: a;
     padding: 0 1.5rem;
+    z-index: 1;
     
     .logoWrapper {
       display: flex;
@@ -71,7 +74,8 @@
     grid-area: b;
     justify-content: center;
     align-items: center;
-    padding: .75rem 0;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
 
     .sitemapWrapper {
       display: flex;
@@ -127,12 +131,6 @@
       font-size: .75rem;
     }
 
-    .hint {
-      width: 100%;
-      font-size: .75rem;
-      font-style: italic;
-    }
-
   }
 
   .authorContainer {
@@ -140,13 +138,14 @@
     justify-content: left;
     align-items: flex-end;
     grid-area: d;
+    position: relative;
     padding: 0 0 1rem 1.75rem;
     
     .message {
       padding: .25rem .5rem;
       height: auto;
       width: auto;
-      background: #111111aa;
+      background: #111111bb;
       outline: .125rem solid var(--FooterBackgroundColor);
       border-radius: .25rem;
       backdrop-filter: blur(1rem);
@@ -192,53 +191,61 @@
     }
 
     .instagram { background-image: url("/assets/icons/instagram.svg"); }
+    .github { background-image: url("/assets/icons/github.svg"); }
     .spotify { background-image: url("/assets/icons/spotify.svg"); }
     .email { background-image: url("/assets/icons/email.svg"); }
     .phone { background-image: url("/assets/icons/phone.svg"); }
 
   }
 
-}
+  /* Safari's genius of not allowing absolutely-positioned elements to be self-aligned */
+  .beforeAndAfterContainer {
+    display: flex;
+    align-items: flex-end;
+    grid-area: f;
+    position: absolute;
+    height: 0;
+    width: 100%;
+    pointer-events: none;
 
-.footer::before {
-  content: "";
-  align-self: flex-end;
-  position: absolute;
-  aspect-ratio: 1;
-  width: min(100%, 9rem);
-  background: linear-gradient(
-    45deg,
-    var(--FooterAccentColor) 25%,
-    var(--FooterBackgroundColor) 25%,
-    var(--FooterBackgroundColor) 30%,
-    var(--FooterAccentColor) 30%,
-    var(--FooterAccentColor) 40%,
-    var(--FooterBackgroundColor) 40%,
-    var(--FooterBackgroundColor) 45%,
-    var(--FooterAccentColor) 45%
-  );
-  clip-path: polygon(0 0, 0 100%, 100% 100%);
-}
+    .before {
+      position: absolute;
+      aspect-ratio: 1;
+      width: min(100%, 9rem);
+      background: linear-gradient(
+        45deg,
+        var(--FooterAccentColor) 25%,
+        var(--FooterBackgroundColor) 25%,
+        var(--FooterBackgroundColor) 30%,
+        var(--FooterAccentColor) 30%,
+        var(--FooterAccentColor) 40%,
+        var(--FooterBackgroundColor) 40%,
+        var(--FooterBackgroundColor) 45%,
+        var(--FooterAccentColor) 45%
+      );
+      clip-path: polygon(0 0, 0 100%, 100% 100%);
+    }
 
-.footer::after {
-  content: "";
-  justify-self: last baseline;
-  align-self: last baseline;
-  position: absolute;
-  aspect-ratio: 1;
-  width: min(100%, 3rem);
-  background: linear-gradient(
-    -45deg,
-    var(--FooterAccentColor) 30%,
-    var(--FooterBackgroundColor) 30%,
-    var(--FooterBackgroundColor) 40%,
-    var(--FooterAccentColor) 40%,
-    var(--FooterAccentColor) 45%,
-    var(--FooterBackgroundColor) 45%,
-    var(--FooterAccentColor) 45%
-  );
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-  z-index: 1;
+    .after {
+      right: 0;
+      position: absolute;
+      aspect-ratio: 1;
+      width: min(100%, 3rem);
+      background: linear-gradient(
+        -45deg,
+        var(--FooterAccentColor) 30%,
+        var(--FooterBackgroundColor) 30%,
+        var(--FooterBackgroundColor) 40%,
+        var(--FooterAccentColor) 40%,
+        var(--FooterAccentColor) 45%,
+        var(--FooterBackgroundColor) 45%,
+        var(--FooterAccentColor) 45%
+      );
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+  }
+
 }
 
 @keyframes backgroundGlowCancel {
@@ -277,7 +284,10 @@
     grid-template-rows: auto auto;
     grid-template-areas:
     "a b b"
-    "d c e";
+    "d c e"
+    "f f f";
+
+    .sitemapContainer { padding: 1rem 0; }
 
     .logoContainer {
       display: flex;
@@ -303,7 +313,8 @@
       "b"
       "c"
       "e"
-      "d";
+      "d"
+      "f";
     padding-top: .5rem;
     height: max-content;
     
@@ -314,7 +325,12 @@
 
     }
 
-    .sitemapContainer .sitemapWrapper { flex-wrap: wrap; }
+    .sitemapContainer {
+      padding: 1rem 0;
+
+      .sitemapWrapper { flex-wrap: wrap; }
+    
+    }
     
     .authorContainer {
       justify-content: center;
