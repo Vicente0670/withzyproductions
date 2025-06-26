@@ -1,8 +1,11 @@
 import page from "./page.module.css";
 import Headshot from "@/components/defaultComponents/headshot/headshot";
 import LearnAboutMe from "@/components/pageComponents/home/buttonLearnAboutMe";
+
 import TitleContainer from "@/components/pageComponents/home/containers/titleContainer/titleContainer";
 import ExperienceContainer from "@/components/pageComponents/home/containers/experienceContainer/experienceContainer";
+import SkillsContainer from "@/components/pageComponents/home/containers/skillsContainer/skillsContainer";
+
 import ImageContainer from "@/components/pageComponents/home/imageContainer";
 import { Metadata } from "next";
 
@@ -30,6 +33,7 @@ export default function Page() {
   const container = {
     title: "titleContainer",
     experience: "experienceContainer",
+    skills: "skillsContainer",
   }
 
   return (
@@ -73,11 +77,7 @@ export default function Page() {
                   
                   <TitleContainer id={container.title} />
                   <ExperienceContainer id={container.experience} />
-
-                  <div className={page.skillsContainer}>
-                    <h3>My Skills</h3>
-                    <p>I possess a sharp eye for detail, which I use to find even the smallest errors in text. I work well under pressure and can produce high-quality work in short periods of time. I have strong interpersonal skills and work with a wide variety of people. I am skilled with Microsoft Office, Adobe Premiere Pro, Photoshop, and Audition. I am also Hootesuite Certified.</p>
-                  </div>
+                  <SkillsContainer id={container.skills} />
 
                   <div className={page.goalsContainer}>
                     <h3>My Goals</h3>

@@ -8,7 +8,7 @@ const metrics = {
 
 export default function ExperienceContainer(experience: { id: string }) {
   return (
-    <div className="experienceContainer" id={experience.id}>
+    <div className={experience.id} id={experience.id}>
       <div className="title">
         <h3>My Experience</h3>
       </div>

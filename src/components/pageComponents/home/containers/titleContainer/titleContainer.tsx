@@ -8,7 +8,7 @@ const metrics = {
 
 export default function TitleContainer(title: {id: string}) {
   return (
-    <div className="titleContainer" id={title.id}>
+    <div className={title.id} id={title.id}>
       <div className="title">
         <p>Greetings, I'm</p>
         <h2>Zyshonne Harris</h2>
