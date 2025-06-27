@@ -2,11 +2,37 @@
 
 import "./skillsContainer.css";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
-export default function SkillsContainer(skills: { id: string }) {
+export default function SkillsContainer(skills: { id: string }) { 
 
-  const skill: Array<Element> = [];
+  const skillList = [
+    { text: "Attention to Detail" },
+    { text: "Time Management" },
+    { text: "Communication" },
+    { text: "Software Literacy" },
+  ];
+
+  const imageList = [
+    {source: 0},
+    {source: 1},
+    {source: 2},
+    {source: 3},
+  ];
+
+  const descriptionList = [
+    {text: "I possess a sharp eye for detail, which I use to find even the smallest errors in text."},
+    {text: "I work well under pressure and can produce high-quality work in short periods of time."},
+    {text: "I have strong interpersonal skills and work with a wide variety of people."},
+    {text: "I am skilled with Microsoft Office, Adobe Premiere Pro, Photoshop, and Audition. I am also Hootesuite Certified."}
+  ];
+  
+  const refTitle: any = useRef(null);
+  const refContainer: any = useRef(null);
+  const skillElements: any = useRef([]);
+  const imageElements: any = useRef([]);
+  const descriptionElements: any = useRef([]);
+
   const image: Array<Element> = [];
   const description: Array<Element> = [];
   
@@ -17,60 +43,44 @@ export default function SkillsContainer(skills: { id: string }) {
   const presText = "presentationText";
   const imgSrc = "/assets/presentation/"
   const imgType = ".avif";
-  
-  let title: HTMLElement;
-  let container: HTMLElement;
-  let cHeight: number;
-  let cTop: number;
 
   // I'm very certain IntersectionObserver doesn't provide what I need for this.
 
-  function classAppend(section: number) {
+  const classAppend = useCallback((section: number) => {
 
-    for (let i = 0; i < skill.length; i++) { skill[i].classList.remove("selected"); }
-    for (let i = 0; i < image.length; i++) { image[i].classList.remove("selected"); }
-    for (let i = 0; i < description.length; i++) { description[i].classList.remove("selected"); }
+    for (let i = 0; i < skillElements.current.length; i++) { skillElements.current[i].classList.remove("selected"); }
+    for (let i = 0; i < imageElements.current.length; i++) { imageElements.current[i].classList.remove("selected"); }
+    for (let i = 0; i < descriptionElements.current.length; i++) { descriptionElements.current[i].classList.remove("selected"); }
 
-    skill[section].classList.add("selected");
-    image[section].classList.add("selected");
-    description[section].classList.add("selected");
+    skillElements.current[section].classList.add("selected");
+    imageElements.current[section].classList.add("selected");
+    descriptionElements.current[section].classList.add("selected");
 
-    title.style.transform = `translateY(-${section}00%)`;
+    refTitle.current.style.transform = `translateY(-${section}00%)`;
 
     return console.info(`Showcasing section ${section}.`);
-  }
+  }, [refTitle]);
 
-  function scroller() {
-    cHeight = container.clientHeight;
-    cTop = container.getBoundingClientRect().top;
+  const scroller = useCallback(() => {
+    const cHeight = refContainer.current.clientHeight;
+    const cTop = refContainer.current.getBoundingClientRect().top;
 
-    let result = cTop / cHeight;
+    const result = cTop / cHeight;
 
     if ((result <= 0) && (result > -.2)) return classAppend(0);
     if ((result <= -.2) && (result > -.4)) return classAppend(1);
     if ((result <= -.4) && (result > -.6)) return classAppend(2);
     if ((result <= -.6) && (result > -1)) return classAppend(3);
-  }
+  }, [classAppend]);
     
   useEffect(() => {
-    title = document.getElementById(scrollId)!;
-    container = document.getElementById(skills.id)!;
-
-    let elements;
-
-    elements = document.querySelectorAll(".skillsList .skill");
-    for (let i = 0; i < elements.length; i++) { skill.push(elements[i]); }
-
-    elements = document.querySelectorAll(`.${presImg} .${imgClass}`);
-    for (let i = 0; i < elements.length; i++) { image.push(elements[i]); }
-
-    elements = document.querySelectorAll(".description");
-    for (let i = 0; i < elements.length; i++) { description.push(elements[i]); }
+    refTitle.current = document.getElementById(scrollId)!;
+    refContainer.current = document.getElementById(skills.id)!;
 
     document.addEventListener("scroll", scroller);
     scroller();
 
-  }, [scroller, classAppend]);
+  }, [skills.id, classAppend, scroller]);
 
   return (
     <div className={skills.id} id={skills.id}>
@@ -91,59 +101,41 @@ export default function SkillsContainer(skills: { id: string }) {
           </div>
           <div className="skills">
             <div className="skillsList">
-              <div className="skill">
-                <p>Attention to De&shy;tail</p>
-              </div>
-              <div className="skill">
-                <p>Time Manage&shy;ment</p>
-              </div>
-              <div className="skill">
-                <p>Communi&shy;cation</p>
-              </div>
-              <div className="skill">
-                <p>Software Literacy</p>
-              </div>
+              {skillList.map((element, elementIndex) => (
+                <div className="skill" key={elementIndex} ref={(e: any) => (skillElements.current[elementIndex] = e)}>
+                  <p>{element.text}</p>
+                </div>
+              ))}
             </div>
             <div className="skillsPresentation">
               <div className={presImg}>
-                <Image
-                  src={imgSrc + 0 + imgType}
-                  alt="Presentation Image"
-                  height={420}
-                  width={420}
-                  className={`${imgClass} image1 selected`}
-                  priority={false}
-                />
-                <Image
-                  src={imgSrc + 1 + imgType}
-                  alt="Presentation Image"
-                  height={420}
-                  width={420}
-                  className={`${imgClass} image2`}
-                  priority={false}
-                />
-                <Image
-                  src={imgSrc + 2 + imgType}
-                  alt="Presentation Image"
-                  height={420}
-                  width={420}
-                  className={`${imgClass} image3`}
-                  priority={false}
-                />
-                <Image
-                  src={imgSrc + 3 + imgType}
-                  alt="Presentation Image"
-                  height={420}
-                  width={420}
-                  className={`${imgClass} image4`}
-                  priority={false}
-                />
+                {imageList.map((element, elementIndex) => (
+                  <Image
+                    src={imgSrc + element.source + imgType}
+                    alt="Presentation Image"
+                    height={420}
+                    width={420}
+                    className={`${imgClass} image${elementIndex + 1} ${elementIndex === 0 ? "selected" : ""}`}
+                    priority={false}
+                    key={elementIndex}
+                    ref={(e: any) => (imageElements.current[elementIndex] = e)}
+                  />
+                ))}
               </div>
               <div className={presText}>
-                <p className={`${textClass} text1 selected`}>I possess a sharp eye for detail, which I use to find even the smallest errors in text.</p>
+                {descriptionList.map((element, elementIndex) => (
+                  <p
+                    className={`${textClass} text${elementIndex + 1} ${elementIndex === 0 ? "selected" : ""}`}
+                    key={elementIndex}
+                    ref={(e: any) => (descriptionElements.current[elementIndex] = e)}
+                  >
+                    {element.text}
+                  </p>
+                ))}
+                {/* 
                 <p className={`${textClass} text2`}>I work well under pressure and can produce high-quality work in short periods of time.</p>
                 <p className={`${textClass} text3`}>I have strong interpersonal skills and work with a wide variety of people.</p>
-                <p className={`${textClass} text4`}>I am skilled with Microsoft Office, Adobe Premiere Pro, Photoshop, and Audition. I am also Hootesuite Certified.</p>
+                <p className={`${textClass} text4`}>I am skilled with Microsoft Office, Adobe Premiere Pro, Photoshop, and Audition. I am also Hootesuite Certified.</p> */}
               </div>
             </div>
           </div>

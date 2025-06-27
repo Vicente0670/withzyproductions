@@ -196,6 +196,9 @@
   .skillsContainer .fullContent .container .skills .skillsList {
     width: calc(33% - .5rem);
   }
+  .skillsContainer .fullContent .container .skills .skillsList .skill:nth-child(3) p {
+    line-break: anywhere;
+  }
 }
 
 @media screen and (max-width: 44.99rem) {

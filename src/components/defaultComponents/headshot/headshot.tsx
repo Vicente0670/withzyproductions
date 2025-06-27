@@ -2,7 +2,7 @@
 
 import "./headshot.css";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
 const metrics = {
   width: 384,
@@ -54,26 +54,33 @@ let elemObserver: IntersectionObserver;
 
 export default function Headshot({ container, schema }: any) {
   
+  const textRef = useRef(null);
+  const timeoutFunction = useRef<any>(); // The "Timeout" type apparently isn't a thing?
+  const currentIndex = useRef(0);
+
+  const [intersectingFooter, isFooterInView] = useState(false);
   const [hasEnabled, enabled] = useState(false);
   const [isOpen, clicked] = useState(true);
-  const [intersectingFooter, isFooterInView] = useState(false);
-
+  const [textContent, setTextContent] = useState("");
   
   const writerSpeed = 17; // in milliseconds
   const deletionSpeed = 10;
   const currentDialog = schema.page;
+
+  const currentText = useRef("");
   const textContainerId = "textContainer";
-  let currentText = "";
-  let currentIndex = 0;
-  let textContainer: HTMLElement;
-  let timeoutFunction: any;
+  
+  const textContainer = useMemo(() => {
+    return <p className="text" id={textContainerId} ref={textRef}>{textContent}</p>;
+  }, [textContent]);
+
   let unspellingTimeoutFunction: any;
 
-  function handleFooterIntersect(elem: IntersectionObserverEntry[]) {
+  const handleFooterIntersect = useCallback((elem: IntersectionObserverEntry[]) => {
     if (elem[0].isIntersecting) isFooterInView(true); else isFooterInView(false);
-  }
+  }, [isFooterInView]);
 
-  function handleElementIntersect(elem: IntersectionObserverEntry[]) {
+  const handleElementIntersect = useCallback((elem: IntersectionObserverEntry[]) => {
     elem.forEach((e) => {
       if (e.isIntersecting) {
         observedList.push(e.target);
@@ -83,9 +90,9 @@ export default function Headshot({ container, schema }: any) {
         console.log(observedList);
       }
     });
-  }
+  }, [])
 
-  function intersectionAppend() {
+  const intersectionAppend = useCallback(() => {
 
     const footerIntersectionSettings = { root: null, threshold: .33 };
     footerObserver = new IntersectionObserver(handleFooterIntersect, footerIntersectionSettings);
@@ -96,60 +103,56 @@ export default function Headshot({ container, schema }: any) {
     
     for (let i = 0; i < elem.length; i++) elemObserver.observe(elem[i]!);
 
-  }
+  }, [handleFooterIntersect, handleElementIntersect]);
 
-  function dialogSpell() {
-    if ((currentIndex < currentText.length) && isOpen === true) {
+  const dialogSpell = useCallback(() => {
+    if ((currentIndex.current < currentText.current.length) && isOpen === true) {
       
-      textContainer.textContent += currentText[currentIndex];
-      currentIndex++;
+      setTextContent((current) => current += currentText.current[currentIndex.current]);
+      currentIndex.current++;
       
       for (let i = 0; i < punc.length; i++) {
-        if (currentText[currentIndex - 1] === punc[i]) {
-          return timeoutFunction = setTimeout(dialogSpell, timing[i]);
+        if (currentText.current[currentIndex.current - 1] === punc[i]) {
+          return timeoutFunction.current = setTimeout(dialogSpell, timing[i]);
         }
       }
 
-      return timeoutFunction = setTimeout(dialogSpell, writerSpeed);
+      return timeoutFunction.current = setTimeout(dialogSpell, writerSpeed);
     }
     else if (isOpen === false) {
-      clearTimeout(timeoutFunction);
+      clearTimeout(timeoutFunction.current);
     }
     else {
-      currentIndex = 0;
+      currentIndex.current = 0;
     }
-  }
+  }, [isOpen])
   
   function dialogUnspell() {
 
-    if (!textContainer.textContent) return console.info('No more "unspelling", if you know what I mean.');
+    if (!textContent) return console.info('No more "unspelling", if you know what I mean.');
 
-    if (textContainer.textContent) {
-      textContainer.textContent = textContainer.textContent.slice(0, (textContainer.textContent.length - 1));
+    if (textContent) {
+      setTextContent((current) => current.slice(0, (current.length - 1)));
       unspellingTimeoutFunction = setTimeout(dialogUnspell, deletionSpeed);
     }
   }
 
-  function dialogAppend() {
-
-    textContainer = document.getElementById(textContainerId)!;
-    textContainer.textContent = "";
+  const dialogAppend = useCallback(() => {
 
     if (currentDialog === "main") {
       elem.push(document.getElementById(container.title));
       elem.push(document.getElementById(container.experience));
 
       // Hardcoded for now.
-      currentText = textOptions.main[4];
+      currentText.current = textOptions.main[4];
       dialogSpell();
-
     }
 
     intersectionAppend();
 
-  }
+  }, [currentDialog, currentText, container, dialogSpell, intersectionAppend]);
 
-  function dialogView() { if (isOpen === true) clicked(false); else clicked(true); }
+  const dialogView = useCallback(() => { if (isOpen === true) clicked(false); else clicked(true); }, [isOpen, clicked]);
 
   useEffect(() => {
     if (hasEnabled === false) {
@@ -163,7 +166,7 @@ export default function Headshot({ container, schema }: any) {
       setTimeout(dialogAppend, 1200);
       enabled(true);
     }
-  }, [hasEnabled, intersectionAppend, dialogView, dialogAppend]);
+  }, [hasEnabled, dialogAppend, dialogView, intersectionAppend]);
 
   return (
     <>
@@ -192,7 +195,7 @@ export default function Headshot({ container, schema }: any) {
         </div>
         <div className="textBox box">
           <div className="textWrapper">
-            <p className="text" id={textContainerId}/>
+            {textContainer}
           </div>
           <div className="speechAttachment"/>
         </div>
