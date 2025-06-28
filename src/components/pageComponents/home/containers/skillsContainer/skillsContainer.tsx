@@ -57,8 +57,7 @@ export default function SkillsContainer(skills: { id: string }) {
     descriptionElements.current[section].classList.add("selected");
 
     refTitle.current.style.transform = `translateY(-${section}00%)`;
-
-    return console.info(`Showcasing section ${section}.`);
+    
   }, [refTitle]);
 
   const scroller = useCallback(() => {

@@ -56,12 +56,12 @@ export default function Headshot({ container, schema }: any) {
   
   const textRef = useRef(null);
   const timeoutFunction = useRef<any>(); // The "Timeout" type apparently isn't a thing?
+  const textContainerRef = useRef<any>(null);
   const currentIndex = useRef(0);
 
   const [intersectingFooter, isFooterInView] = useState(false);
   const [hasEnabled, enabled] = useState(false);
   const [isOpen, clicked] = useState(true);
-  const [textContent, setTextContent] = useState("");
   
   const writerSpeed = 17; // in milliseconds
   const deletionSpeed = 10;
@@ -69,10 +69,10 @@ export default function Headshot({ container, schema }: any) {
 
   const currentText = useRef("");
   const textContainerId = "textContainer";
-  
+
   const textContainer = useMemo(() => {
-    return <p className="text" id={textContainerId} ref={textRef}>{textContent}</p>;
-  }, [textContent]);
+    return <p className="text" id={textContainerId} ref={textRef}></p>;
+  }, []);
 
   let unspellingTimeoutFunction: any;
 
@@ -108,8 +108,13 @@ export default function Headshot({ container, schema }: any) {
   const dialogSpell = useCallback(() => {
     if ((currentIndex.current < currentText.current.length) && isOpen === true) {
       
-      setTextContent((current) => current += currentText.current[currentIndex.current]);
-      currentIndex.current++;
+      if (currentText.current[currentIndex.current] == undefined) return console.info("Finished spelling.")
+      
+      else {
+        console.log(textContainerRef.current.textContent + "\n" + currentText.current[currentIndex.current]);
+        textContainerRef.current.textContent += currentText.current[currentIndex.current];
+        currentIndex.current++;
+      }
       
       for (let i = 0; i < punc.length; i++) {
         if (currentText.current[currentIndex.current - 1] === punc[i]) {
@@ -129,10 +134,10 @@ export default function Headshot({ container, schema }: any) {
   
   function dialogUnspell() {
 
-    if (!textContent) return console.info('No more "unspelling", if you know what I mean.');
+    if (!textContainerRef.current.textContent) return console.info('No more "unspelling", if you know what I mean.');
 
-    if (textContent) {
-      setTextContent((current) => current.slice(0, (current.length - 1)));
+    if (textContainerRef.current.textContent) {
+      textContainerRef.current.textContent = textContainerRef.current.textContent(0, (textContainerRef.current.textContent.length - 1));
       unspellingTimeoutFunction = setTimeout(dialogUnspell, deletionSpeed);
     }
   }
@@ -158,6 +163,7 @@ export default function Headshot({ container, schema }: any) {
     if (hasEnabled === false) {
 
       footerDiv = document.getElementById(footerId)!;
+      textContainerRef.current = document.getElementById(textContainerId)!;
 
       intersectionAppend();
 
