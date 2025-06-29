@@ -28,6 +28,7 @@ export default function SkillsContainer(skills: { id: string }) {
   ];
   
   const refTitle: any = useRef(null);
+  const refPhotoScroller: any = useRef(null);
   const refContainer: any = useRef(null);
   const skillElements: any = useRef([]);
   const imageElements: any = useRef([]);
@@ -41,6 +42,9 @@ export default function SkillsContainer(skills: { id: string }) {
   const textClass = "description";
   const presImg = "presentationImage";
   const presText = "presentationText";
+  const photoScroller = "photographScroller";
+  const slideContainer = "photographContainer";
+
   const imgSrc = "/assets/presentation/"
   const imgType = ".avif";
 
@@ -57,6 +61,7 @@ export default function SkillsContainer(skills: { id: string }) {
     descriptionElements.current[section].classList.add("selected");
 
     refTitle.current.style.transform = `translateY(-${section}00%)`;
+    refPhotoScroller.current.style.transform = `translateY(-${section}00%)`;
     
   }, [refTitle]);
 
@@ -74,6 +79,7 @@ export default function SkillsContainer(skills: { id: string }) {
     
   useEffect(() => {
     refTitle.current = document.getElementById(scrollId)!;
+    refPhotoScroller.current = document.getElementById(photoScroller)!;
     refContainer.current = document.getElementById(skills.id)!;
 
     document.addEventListener("scroll", scroller);
@@ -108,18 +114,24 @@ export default function SkillsContainer(skills: { id: string }) {
             </div>
             <div className="skillsPresentation">
               <div className={presImg}>
-                {imageList.map((element, elementIndex) => (
-                  <Image
-                    src={imgSrc + element.source + imgType}
-                    alt="Presentation Image"
-                    height={420}
-                    width={420}
-                    className={`${imgClass} image${elementIndex + 1} ${elementIndex === 0 ? "selected" : ""}`}
-                    priority={false}
-                    key={elementIndex}
-                    ref={(e: any) => (imageElements.current[elementIndex] = e)}
-                  />
-                ))}
+                <div className={photoScroller} id={photoScroller}>
+                  {imageList.map((element, elementIndex) => (
+                    <div
+                      className={slideContainer + " " + `${elementIndex === 0 ? "selected" : ""}`}
+                      key={elementIndex}
+                      ref={(e: any) => (imageElements.current[elementIndex] = e)}
+                    >
+                      <Image
+                        src={imgSrc + element.source + imgType}
+                        alt="Presentation Image"
+                        height={420}
+                        width={420}
+                        className={`${imgClass} image${elementIndex + 1}`}
+                        priority={false}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className={presText}>
                 {descriptionList.map((element, elementIndex) => (

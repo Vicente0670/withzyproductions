@@ -108,10 +108,9 @@ export default function Headshot({ container, schema }: any) {
   const dialogSpell = useCallback(() => {
     if ((currentIndex.current < currentText.current.length) && isOpen === true) {
       
-      if (currentText.current[currentIndex.current] == undefined) return console.info("Finished spelling.")
+      if (currentText.current[currentIndex.current] == undefined) return console.info("Finished spelling.");
       
       else {
-        console.log(textContainerRef.current.textContent + "\n" + currentText.current[currentIndex.current]);
         textContainerRef.current.textContent += currentText.current[currentIndex.current];
         currentIndex.current++;
       }
